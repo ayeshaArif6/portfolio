@@ -1,41 +1,126 @@
-.header {
-    color: rgb(139, 158, 230);
-    font-size: 50px;
-    font-style: bold;
-    background-color: #111827;
-    display: flex;
-    justify-content: center;
+:root {
+  --bg: #0f172a;
+  --text: #f8fafc;
+  --text-accent: #c7d2fe;
+  --text-secondary: #94a3b8;
+  --btn-primary: #6366f1;
+  --btn-secondary: transparent;
+  --btn-border: #c7d2fe;
 }
 
-.project_link {
-    color: blueviolet;
-    justify-content: center;
-    size: 3%;
-
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
-.header2 {
-    display: flex;
-    flex-direction: column;
-    background-color: #111827;
-    justify-content: center;
-    size: 10%;
-    border: black;
-
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background-color: #0c1427;
 }
 
-p {
-    color: sandybrown;
-    font-size: 25px;
-    justify-content: center;
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.container {
-    min-height: 100vh;
-    width: 100%;
-    background-color: #111827;
-    display: flex;
-    justify-content: top;
-    flex-direction: column;
+.logo span {
+  color: var(--text-accent);
+}
 
-} 
+.main-nav a {
+  margin-left: 2rem;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.main-nav a:hover {
+  color: var(--text-accent);
+}
+
+.hero {
+  text-align: center;
+  padding: 6rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-accent);
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.btn.primary {
+  background-color: var(--btn-primary);
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: #4f46e5;
+}
+
+.btn.secondary {
+  border: 2px solid var(--btn-border);
+  color: var(--text);
+}
+
+.btn.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-icons a img {
+  width: 32px;
+  height: 32px;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
