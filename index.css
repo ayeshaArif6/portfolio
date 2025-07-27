@@ -47,7 +47,7 @@ body {
 .hero {
   text-align: center;
   padding: 6rem 2rem;
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -56,6 +56,7 @@ body {
   font-weight: 800;
   color: var(--text-accent);
   margin-bottom: 0.5rem;
+  justify-content: top;
 }
 
 .hero-subtitle {
@@ -63,6 +64,7 @@ body {
   font-weight: 600;
   color: var(--text);
   margin-bottom: 1.5rem;
+  justify-content: top;
 }
 
 .hero-description {
@@ -101,6 +103,13 @@ body {
   color: var(--text);
 }
 
+.projects-section {
+  text-align: center;
+  padding: 6rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .btn.secondary:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -109,6 +118,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .social-icons a img {
@@ -122,5 +132,85 @@ body {
 .social-icons a:hover img {
   transform: scale(1.1);
   opacity: 1;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 360px);
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 2rem;
+  max-width: 1100px; /* just enough to fit 3 cards */
+  margin: 3rem auto 0 auto;
+}
+
+.project-card {
+  position: relative; /* REQUIRED for overlay */
+  background-color: #1e293b; /* fallback for --card-bg */
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.project-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  pointer-events: none; /* prevents hover conflict */
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 250px; /* match image height */
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.project-info {
+  padding: 2rem;
+  text-align: left;
+}
+
+.project-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+.project-info p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.view-btn {
+  padding: 0.6rem 1.2rem;
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.view-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
