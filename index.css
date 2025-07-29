@@ -59,6 +59,14 @@ body {
   justify-content: top;
 }
 
+.hero-title2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-accent);
+  margin-bottom: 0.5rem;
+  justify-content: top;
+}
+
 .hero-subtitle {
   font-size: 1.5rem;
   font-weight: 600;
@@ -213,4 +221,49 @@ body {
 .view-btn:hover {
   background: rgba(255, 255, 255, 0.2);
 }
+
+.connect_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 250px);
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 2rem;
+  max-width: 1100px; /* just enough to fit 3 cards */
+  margin: 3rem auto 0 auto;
+
+}
+
+.connect_info {
+  position: relative; /* REQUIRED for overlay */
+  background-color: #1e293b; /* fallback for --card-bg */
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.connect_lines {
+  padding: 2rem;
+  text-align: left;
+}
+
+.connect_lines h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  color: var(--text);
+  justify-content: center;
+}
+
+.connect_lines p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.connect_info:hover{
+  transform: scale(1.08);
+  opacity: 1;
+}
+
+
 
