@@ -231,3 +231,50 @@ body {
 @media (max-width: 640px) {
   .projects-grid { grid-template-columns: 1fr; max-width: 420px; }
 }
+
+/* smooth anchor scrolling */
+html { scroll-behavior: smooth; }
+
+/* make hero a positioning context and leave room for the arrow */
+.hero { position: relative; padding-bottom: 6rem; }
+
+/* scroll-down button */
+.scroll-down{
+  position: absolute;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 2px solid var(--text-accent);
+  display: grid;
+  place-items: center;
+
+  background: transparent;
+  opacity: 0.9;
+  transition: opacity .2s ease, border-color .2s ease, transform .2s ease;
+  animation: sd-bob 1.8s ease-in-out infinite;
+}
+
+.scroll-down svg{
+  width: 22px;
+  height: 22px;
+  fill: var(--text-accent);
+}
+
+/* subtle hover nudge */
+.scroll-down:hover{
+  opacity: 1;
+  border-color: #a5b4fc;
+  transform: translateX(-50%) translateY(2px);
+  animation-play-state: paused;
+}
+
+/* bobbing animation (keeps center translation) */
+@keyframes sd-bob{
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%     { transform: translateX(-50%) translateY(6px); }
+}
