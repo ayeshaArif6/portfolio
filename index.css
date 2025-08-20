@@ -1,3 +1,4 @@
+
 :root {
   --bg: #0f172a;
   --text: #f8fafc;
@@ -6,7 +7,14 @@
   --btn-primary: #6366f1;
   --btn-secondary: transparent;
   --btn-border: #c7d2fe;
+
+  /* card sizing */
+  --card-w: 280px;      /* width per card (smaller) */
+  --thumb-h: 170px;     /* image/overlay height (smaller) */
+  --card-gap: 1.25rem;  /* space between cards */
 }
+
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -23,14 +31,8 @@ body {
   background-color: #0c1427;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.logo span {
-  color: var(--text-accent);
-}
+.logo { font-size: 1.5rem; font-weight: bold; }
+.logo span { color: var(--text-accent); }
 
 .main-nav a {
   margin-left: 2rem;
@@ -39,10 +41,7 @@ body {
   font-weight: 500;
   transition: color 0.2s;
 }
-
-.main-nav a:hover {
-  color: var(--text-accent);
-}
+.main-nav a:hover { color: var(--text-accent); }
 
 .hero {
   text-align: center;
@@ -97,29 +96,17 @@ body {
   transition: all 0.2s ease;
 }
 
-.btn.primary {
-  background-color: var(--btn-primary);
-  color: white;
-}
+.btn.primary { background-color: var(--btn-primary); color: white; }
+.btn.primary:hover { background-color: #4f46e5; }
 
-.btn.primary:hover {
-  background-color: #4f46e5;
-}
-
-.btn.secondary {
-  border: 2px solid var(--btn-border);
-  color: var(--text);
-}
+.btn.secondary { border: 2px solid var(--btn-border); color: var(--text); }
+.btn.secondary:hover { background-color: rgba(255, 255, 255, 0.1); }
 
 .projects-section {
   text-align: center;
-  padding: 6rem 2rem;
+  padding: 4rem 2rem;   /* tighter */
   max-width: 1000px;
   margin: 0 auto;
-}
-
-.btn.secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .social-icons {
@@ -128,7 +115,6 @@ body {
   gap: 1.5rem;
   margin-bottom: 1rem;
 }
-
 .social-icons a img {
   width: 32px;
   height: 32px;
@@ -136,25 +122,22 @@ body {
   opacity: 0.8;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
+.social-icons a:hover img { transform: scale(1.1); opacity: 1; }
 
-.social-icons a:hover img {
-  transform: scale(1.1);
-  opacity: 1;
-}
-
+/* ===== Projects grid: 3 smaller cards per row ===== */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 360px);
+  grid-template-columns: repeat(3, var(--card-w));
   justify-content: center;
-  gap: 2rem;
-  padding: 0 2rem;
-  max-width: 1100px; /* just enough to fit 3 cards */
+  gap: var(--card-gap);
+  padding: 0 1rem;
+  max-width: calc(3 * var(--card-w) + 2 * var(--card-gap));
   margin: 3rem auto 0 auto;
 }
 
 .project-card {
-  position: relative; /* REQUIRED for overlay */
-  background-color: #1e293b; /* fallback for --card-bg */
+  position: relative;
+  background-color: #1e293b;
   border-radius: 0.75rem;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -163,18 +146,17 @@ body {
 
 .project-card img {
   width: 100%;
-  height: 250px;
+  height: var(--thumb-h);
   object-fit: cover;
   display: block;
-  pointer-events: none; /* prevents hover conflict */
+  pointer-events: none;
 }
 
 .project-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
-  height: 250px; /* match image height */
+  height: var(--thumb-h); /* match image height */
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
@@ -183,32 +165,26 @@ body {
   transition: opacity 0.3s ease;
   pointer-events: none;
 }
+.project-card:hover .project-overlay { opacity: 1; pointer-events: auto; }
 
-.project-card:hover .project-overlay {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-
+/* tighter content */
 .project-info {
-  padding: 2rem;
+  padding: 1rem;                 /* was 2rem */
   text-align: left;
 }
-
 .project-info h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.25rem;
+  margin: 0 0 0.4rem 0;
+  font-size: 1.05rem;            /* smaller */
   color: var(--text);
 }
-
 .project-info p {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;             /* smaller */
   color: var(--text-secondary);
 }
 
 .view-btn {
-  padding: 0.6rem 1.2rem;
+  padding: 0.5rem 1rem;
   border: 2px solid white;
   color: white;
   text-decoration: none;
@@ -217,93 +193,41 @@ body {
   background: transparent;
   transition: background 0.3s ease;
 }
+.view-btn:hover { background: rgba(255, 255, 255, 0.2); }
 
-.view-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
+/* ===== Contact blocks (unchanged size) ===== */
 .connect_grid {
   display: grid;
   grid-template-columns: repeat(2, 250px);
   justify-content: center;
   gap: 2rem;
   padding: 0 2rem;
-  max-width: 1100px; /* just enough to fit 3 cards */
+  max-width: 1100px;
   margin: 3rem auto 0 auto;
-
 }
 
 .connect_info {
-  position: relative; /* REQUIRED for overlay */
-  background-color: #1e293b; /* fallback for --card-bg */
+  position: relative;
+  background-color: #1e293b;
   border-radius: 0.75rem;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease;
 }
-
-.connect_lines {
-  padding: 2rem;
-  text-align: left;
-}
-
+.connect_lines { padding: 2rem; text-align: left; }
 .connect_lines h3 {
   margin: 0 0 0.5rem 0;
   font-size: 1.25rem;
   color: var(--text);
   justify-content: center;
 }
+.connect_lines p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
+.connect_info:hover { transform: scale(1.08); opacity: 1; }
 
-.connect_lines p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--text-secondary);
+/* Optional responsive niceties */
+@media (max-width: 980px) {
+  .projects-grid { grid-template-columns: repeat(2, var(--card-w)); max-width: calc(2 * var(--card-w) + var(--card-gap)); }
 }
-
-.connect_info:hover{
-  transform: scale(1.08);
-  opacity: 1;
+@media (max-width: 640px) {
+  .projects-grid { grid-template-columns: 1fr; max-width: 420px; }
 }
-:root{
-  --card-w: 300px;   /* was 360px */
-  --thumb-h: 190px;  /* was 250px */
-  --card-gap: 1.25rem; /* was 2rem */
-}
-
-/* grid: 3 smaller columns */
-.projects-grid{
-  grid-template-columns: repeat(3, var(--card-w));
-  gap: var(--card-gap);
-  padding: 0 1rem;
-  max-width: calc(3 * var(--card-w) + 2 * var(--card-gap));
-}
-
-/* smaller thumbnail */
-.project-card img{
-  height: var(--thumb-h);
-}
-
-.project-overlay{
-  height: var(--thumb-h);
-}
-
-/* tighter content */
-.project-info{
-  padding: 1.25rem;   /* was 2rem */
-}
-
-.project-info h3{
-  font-size: 1.1rem;  /* was 1.25rem */
-}
-
-.project-info p{
-  font-size: 0.9rem;  /* was 0.95rem */
-}
-
-/* optional: slightly tighter vertical rhythm on the section */
-.projects-section{
-  padding: 4rem 2rem; /* was 6rem 2rem */
-}
-
-
-
