@@ -264,6 +264,46 @@ body {
   transform: scale(1.08);
   opacity: 1;
 }
+:root{
+  --card-w: 300px;   /* was 360px */
+  --thumb-h: 190px;  /* was 250px */
+  --card-gap: 1.25rem; /* was 2rem */
+}
+
+/* grid: 3 smaller columns */
+.projects-grid{
+  grid-template-columns: repeat(3, var(--card-w));
+  gap: var(--card-gap);
+  padding: 0 1rem;
+  max-width: calc(3 * var(--card-w) + 2 * var(--card-gap));
+}
+
+/* smaller thumbnail */
+.project-card img{
+  height: var(--thumb-h);
+}
+
+.project-overlay{
+  height: var(--thumb-h);
+}
+
+/* tighter content */
+.project-info{
+  padding: 1.25rem;   /* was 2rem */
+}
+
+.project-info h3{
+  font-size: 1.1rem;  /* was 1.25rem */
+}
+
+.project-info p{
+  font-size: 0.9rem;  /* was 0.95rem */
+}
+
+/* optional: slightly tighter vertical rhythm on the section */
+.projects-section{
+  padding: 4rem 2rem; /* was 6rem 2rem */
+}
 
 
 
