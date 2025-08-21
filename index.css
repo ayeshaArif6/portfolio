@@ -319,4 +319,39 @@ html { scroll-behavior: smooth; }
   0%,100% { transform: translateX(-50%) translateY(0); }
   50%     { transform: translateX(-50%) translateY(6px); }
 }
+/* Arrow pinned to window bottom (from earlier) */
+html { scroll-behavior: smooth; }
+.scroll-down{
+  position: fixed;
+  left: 50%;
+  bottom: 1.25rem;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 46px; height: 46px; border-radius: 999px;
+  border: 2px solid var(--text-accent);
+  display: grid; place-items: center;
+  background: transparent; opacity: .9;
+  transition: opacity .2s, border-color .2s, transform .2s;
+  animation: sd-bob 1.8s ease-in-out infinite;
+}
+.scroll-down svg{ width:22px; height:22px; fill:var(--text-accent); }
+@keyframes sd-bob{ 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+/* NEW: make hero fill the viewport so #projects starts below it */
+:root { --header-h: 88px; }          /* tweak if your header is taller/shorter */
+.hero{
+  position: relative;
+  min-height: calc(100vh - var(--header-h)); /* full screen minus header */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;                 /* a bit tighter than before */
+}
+
+/* Nice anchor stop */
+#projects{ scroll-margin-top: 24px; }
+
+/* Optional quick nudge if you want extra space before My Work */
+.projects-section{ margin-top: 1rem; }  /* increase to 3–4rem if desired */
 
