@@ -1,4 +1,3 @@
-
 :root {
   --bg: #0f172a;
   --text: #f8fafc;
@@ -8,288 +7,79 @@
   --btn-secondary: transparent;
   --btn-border: #c7d2fe;
 
-  /* card sizing */
-  --card-w: 280px;      /* width per card (smaller) */
-  --thumb-h: 170px;     /* image/overlay height (smaller) */
-  --card-gap: 1.25rem;  /* space between cards */
+  /* layout */
+  --header-h: 80px;       /* tweak if your header height changes */
+
+  /* project card sizing */
+  --card-w: 280px;
+  --thumb-h: 170px;
+  --card-gap: 1.25rem;
 }
 
 * { box-sizing: border-box; }
-
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: var(--bg);
+  background: var(--bg);
   color: var(--text);
+  overflow-x: hidden;
 }
 
+/* ===== Header ===== */
 .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 3rem;
-  background-color: #0c1427;
+  background: #0c1427;
+  height: var(--header-h);
 }
-
 .logo { font-size: 1.5rem; font-weight: bold; }
 .logo span { color: var(--text-accent); }
-
 .main-nav a {
   margin-left: 2rem;
   text-decoration: none;
   color: var(--text);
   font-weight: 500;
-  transition: color 0.2s;
+  transition: color .2s;
 }
 .main-nav a:hover { color: var(--text-accent); }
 
+/* ===== Hero fills screen ===== */
 .hero {
+  position: relative;
+  min-height: calc(100svh - var(--header-h));  /* full window minus header */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
   text-align: center;
-  padding: 6rem 2rem;
   max-width: 700px;
   margin: 0 auto;
 }
+.hero-title { font-size: 3rem; font-weight: 800; color: var(--text-accent); margin: .5rem 0; }
+.hero-title2 { font-size: 2.5rem; font-weight: 700; color: var(--text-accent); margin: .5rem 0; }
+.hero-subtitle { font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; }
+.hero-description { font-size: 1.125rem; color: var(--text-secondary); margin-bottom: 2rem; }
+.hero-buttons { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
 
-.hero-title {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--text-accent);
-  margin-bottom: 0.5rem;
-  justify-content: top;
-}
-
-.hero-title2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-accent);
-  margin-bottom: 0.5rem;
-  justify-content: top;
-}
-
-.hero-subtitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 1.5rem;
-  justify-content: top;
-}
-
-.hero-description {
-  font-size: 1.125rem;
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
-}
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.btn {
-  padding: 0.75rem 1.5rem;
-  font-weight: 600;
-  border-radius: 8px;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.2s ease;
-}
-
-.btn.primary { background-color: var(--btn-primary); color: white; }
-.btn.primary:hover { background-color: #4f46e5; }
-
+.btn { padding: .75rem 1.5rem; font-weight: 600; border-radius: 8px; text-decoration: none; transition: all .2s; }
+.btn.primary { background: var(--btn-primary); color: #fff; }
+.btn.primary:hover { background: #4f46e5; }
 .btn.secondary { border: 2px solid var(--btn-border); color: var(--text); }
-.btn.secondary:hover { background-color: rgba(255, 255, 255, 0.1); }
+.btn.secondary:hover { background: rgba(255,255,255,.1); }
 
-.projects-section {
-  text-align: center;
-  padding: 4rem 2rem;   /* tighter */
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
-}
-.social-icons a img {
-  width: 32px;
-  height: 32px;
-  filter: brightness(0) invert(1);
-  opacity: 0.8;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
+.social-icons { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; }
+.social-icons a img { width: 32px; height: 32px; filter: brightness(0) invert(1); opacity: .8; transition: transform .2s, opacity .2s; }
 .social-icons a:hover img { transform: scale(1.1); opacity: 1; }
 
-/* ===== Projects grid: 3 smaller cards per row ===== */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, var(--card-w));
-  justify-content: center;
-  gap: var(--card-gap);
-  padding: 0 1rem;
-  max-width: calc(3 * var(--card-w) + 2 * var(--card-gap));
-  margin: 3rem auto 0 auto;
-}
-
-.project-card {
-  position: relative;
-  background-color: #1e293b;
-  border-radius: 0.75rem;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease;
-}
-
-.project-card img {
-  width: 100%;
-  height: var(--thumb-h);
-  object-fit: cover;
-  display: block;
-  pointer-events: none;
-}
-
-.project-overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: var(--thumb-h); /* match image height */
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-.project-card:hover .project-overlay { opacity: 1; pointer-events: auto; }
-
-/* tighter content */
-.project-info {
-  padding: 1rem;                 /* was 2rem */
-  text-align: left;
-}
-.project-info h3 {
-  margin: 0 0 0.4rem 0;
-  font-size: 1.05rem;            /* smaller */
-  color: var(--text);
-}
-.project-info p {
-  margin: 0;
-  font-size: 0.9rem;             /* smaller */
-  color: var(--text-secondary);
-}
-
-.view-btn {
-  padding: 0.5rem 1rem;
-  border: 2px solid white;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  background: transparent;
-  transition: background 0.3s ease;
-}
-.view-btn:hover { background: rgba(255, 255, 255, 0.2); }
-
-/* ===== Contact blocks (unchanged size) ===== */
-.connect_grid {
-  display: grid;
-  grid-template-columns: repeat(2, 250px);
-  justify-content: center;
-  gap: 2rem;
-  padding: 0 2rem;
-  max-width: 1100px;
-  margin: 3rem auto 0 auto;
-}
-
-.connect_info {
-  position: relative;
-  background-color: #1e293b;
-  border-radius: 0.75rem;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease;
-}
-.connect_lines { padding: 2rem; text-align: left; }
-.connect_lines h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.25rem;
-  color: var(--text);
-  justify-content: center;
-}
-.connect_lines p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
-.connect_info:hover { transform: scale(1.08); opacity: 1; }
-
-/* Optional responsive niceties */
-@media (max-width: 980px) {
-  .projects-grid { grid-template-columns: repeat(2, var(--card-w)); max-width: calc(2 * var(--card-w) + var(--card-gap)); }
-}
-@media (max-width: 640px) {
-  .projects-grid { grid-template-columns: 1fr; max-width: 420px; }
-}
-
-/* smooth anchor scrolling */
-html { scroll-behavior: smooth; }
-
-/* make hero a positioning context and leave room for the arrow */
-.hero { position: relative; padding-bottom: 6rem; }
-
-/* scroll-down button */
+/* ===== Scroll-down arrow fixed to window bottom ===== */
 .scroll-down{
-  position: absolute;
+  position: fixed !important;         /* force over any old rule */
   left: 50%;
-  bottom: 2rem;
-  transform: translateX(-50%);
-  z-index: 2;
-
-  width: 46px;
-  height: 46px;
-  border-radius: 999px;
-  border: 2px solid var(--text-accent);
-  display: grid;
-  place-items: center;
-
-  background: transparent;
-  opacity: 0.9;
-  transition: opacity .2s ease, border-color .2s ease, transform .2s ease;
-  animation: sd-bob 1.8s ease-in-out infinite;
-}
-
-.scroll-down svg{
-  width: 22px;
-  height: 22px;
-  fill: var(--text-accent);
-}
-
-/* subtle hover nudge */
-.scroll-down:hover{
-  opacity: 1;
-  border-color: #a5b4fc;
-  transform: translateX(-50%) translateY(2px);
-  animation-play-state: paused;
-}
-
-/* bobbing animation (keeps center translation) */
-@keyframes sd-bob{
-  0%,100% { transform: translateX(-50%) translateY(0); }
-  50%     { transform: translateX(-50%) translateY(6px); }
-}
-
-/* smooth scroll */
-html { scroll-behavior: smooth; }
-
-/* you no longer need extra bottom padding on hero */
-.hero { position: relative; padding-bottom: 0; }
-
-/* ⬇️ keep the arrow pinned to the window bottom */
-.scroll-down{
-  position: fixed;
-  left: 50%;
-  bottom: 1.25rem;           /* distance from bottom of window */
+  bottom: 1.25rem;
   transform: translateX(-50%);
   z-index: 1000;
 
@@ -302,56 +92,88 @@ html { scroll-behavior: smooth; }
   transition: opacity .2s, border-color .2s, transform .2s;
   animation: sd-bob 1.8s ease-in-out infinite;
 }
+.scroll-down svg { width: 22px; height: 22px; fill: var(--text-accent); }
+.scroll-down:hover { opacity: 1; border-color: #a5b4fc; transform: translateX(-50%) translateY(2px); animation-play-state: paused; }
+@keyframes sd-bob { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
 
-.scroll-down svg{ width: 22px; height: 22px; fill: var(--text-accent); }
-
-.scroll-down:hover{
-  opacity: 1;
-  border-color: #a5b4fc;
-  transform: translateX(-50%) translateY(2px);
-  animation-play-state: paused;
+/* ===== Projects section below hero ===== */
+.projects-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
+#projects { scroll-margin-top: 24px; }  /* nicer anchor stop */
 
-/* optional: nicer anchor stop */
-#projects { scroll-margin-top: 24px; }
-
-@keyframes sd-bob{
-  0%,100% { transform: translateX(-50%) translateY(0); }
-  50%     { transform: translateX(-50%) translateY(6px); }
-}
-/* Arrow pinned to window bottom (from earlier) */
-html { scroll-behavior: smooth; }
-.scroll-down{
-  position: fixed;
-  left: 50%;
-  bottom: 1.25rem;
-  transform: translateX(-50%);
-  z-index: 1000;
-  width: 46px; height: 46px; border-radius: 999px;
-  border: 2px solid var(--text-accent);
-  display: grid; place-items: center;
-  background: transparent; opacity: .9;
-  transition: opacity .2s, border-color .2s, transform .2s;
-  animation: sd-bob 1.8s ease-in-out infinite;
-}
-.scroll-down svg{ width:22px; height:22px; fill:var(--text-accent); }
-@keyframes sd-bob{ 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
-
-/* NEW: make hero fill the viewport so #projects starts below it */
-:root { --header-h: 88px; }          /* tweak if your header is taller/shorter */
-.hero{
-  position: relative;
-  min-height: calc(100vh - var(--header-h)); /* full screen minus header */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Grid: 3 smaller cards per row */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, var(--card-w));
   justify-content: center;
-  padding: 3rem 2rem;                 /* a bit tighter than before */
+  gap: var(--card-gap);
+  padding: 0 1rem;
+  max-width: calc(3 * var(--card-w) + 2 * var(--card-gap));
+  margin: 3rem auto 0 auto;
+}
+.project-card {
+  position: relative;
+  background: #1e293b;
+  border-radius: .75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,.2);
+  transition: transform .2s;
+}
+.project-card img {
+  width: 100%;
+  height: var(--thumb-h);
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+.project-overlay {
+  position: absolute; inset: 0 auto auto 0;
+  width: 100%;
+  height: var(--thumb-h);
+  background: rgba(0,0,0,.5);
+  display: flex; justify-content: center; align-items: center;
+  opacity: 0; transition: opacity .3s; pointer-events: none;
+}
+.project-card:hover .project-overlay { opacity: 1; pointer-events: auto; }
+.project-info { padding: 1rem; text-align: left; }
+.project-info h3 { margin: 0 0 .4rem 0; font-size: 1.05rem; color: var(--text); }
+.project-info p { margin: 0; font-size: .9rem; color: var(--text-secondary); }
+.view-btn { padding: .5rem 1rem; border: 2px solid #fff; color: #fff; text-decoration: none; font-weight: 600; border-radius: .5rem; background: transparent; transition: background .3s; }
+.view-btn:hover { background: rgba(255,255,255,.2); }
+
+/* Contact blocks (unchanged) */
+.connect_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 250px);
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 2rem;
+  max-width: 1100px;
+  margin: 3rem auto 0 auto;
+}
+.connect_info {
+  position: relative;
+  background: #1e293b;
+  border-radius: .75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,.2);
+  transition: transform .2s;
+}
+.connect_lines { padding: 2rem; text-align: left; }
+.connect_lines h3 { margin: 0 0 .5rem 0; font-size: 1.25rem; color: var(--text); justify-content: center; }
+.connect_lines p { margin: 0; font-size: .95rem; color: var(--text-secondary); }
+.connect_info:hover { transform: scale(1.08); opacity: 1; }
+
+/* Responsive niceties */
+@media (max-width: 980px) {
+  .projects-grid { grid-template-columns: repeat(2, var(--card-w)); max-width: calc(2 * var(--card-w) + var(--card-gap)); }
+}
+@media (max-width: 640px) {
+  .projects-grid { grid-template-columns: 1fr; max-width: 420px; }
 }
 
-/* Nice anchor stop */
-#projects{ scroll-margin-top: 24px; }
-
-/* Optional quick nudge if you want extra space before My Work */
-.projects-section{ margin-top: 1rem; }  /* increase to 3–4rem if desired */
 
