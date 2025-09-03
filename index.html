@@ -1,95 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ayesha Arif – Software Engineer</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ayesha Arif — Software Engineer</title>
   <link rel="stylesheet" href="index.css" />
 </head>
-<body>
-  <header class="site-header">
-    <div class="logo"><span>Ayesha Arif</span></div>
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="#">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+<body class="bg">
+  <!-- Sticky Nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="#">A</a>
+      <nav class="links">
+        <a href="#about">› About</a>
+        <a href="#experience">› Experience</a>
+        <a href="#work">› Work</a>
+        <a href="#contact">› Contact</a>
+        <a class="btn-outline" href="Ayesha_Arif_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="hero">
-    <h1 class="hero-title">Ayesha Arif</h1>
-    <h2 class="hero-subtitle">Software Engineer</h2>
-    <p class="hero-description">Creating front-end, back-end, and full-stack projects to solve real world problems and enhance user experiences.</p>
-    <div class="hero-buttons">
-      <a class="btn primary" href="projects.html">Explore Projects →</a>
-      <!--<a class="btn secondary" href="#">About Me</a>-->
-    </div>
-    <div class="social-icons">
-      <a href="https://github.com/ayeshaArif6"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/github.svg" alt="GitHub" /></a>
-      <a href="https://www.linkedin.com/in/ayesha-arif-579584343/"><img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/linkedin.svg" alt="LinkedIn" /></a>
-    </div>
-    <a href="#projects" class="scroll-down" aria-label="Scroll to projects">
-    <!-- chevron icon -->
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M6.7 8.7a1 1 0 0 1 1.4 0L12 12.6l3.9-3.9a1 1 0 1 1 1.4 1.4l-4.6 4.6a1 1 0 0 1-1.4 0L6.7 10.1a1 1 0 0 1 0-1.4z"/>
-    </svg>
-  </a>
-      </main>
-    <section id="projects" class="projects-section">
-    <h1 class="hero-title2">My Work</h1>
-    <!--<p class="hero-description">Projects and stuff yay</p>-->
+  <!-- Side rails -->
+  <aside class="rail-left">
+    <a href="https://github.com/ayeshaArif6" aria-label="GitHub" class="icon">G</a>
+    <a href="https://linkedin.com/in/..." aria-label="LinkedIn" class="icon">in</a>
+    <div class="rail-line"></div>
+  </aside>
+  <aside class="rail-right">
+    <a href="mailto:ayesha@example.com" class="email">ayesha@example.com</a>
+    <div class="rail-line"></div>
+  </aside>
 
-      <!--Add stuff about me here-->
-    <div class="projects-grid">
+  <!-- Hero -->
+  <section class="container hero" id="home">
+    <p class="eyebrow">Hi, my name is</p>
+    <h1 class="h1">Ayesha Arif.</h1>
+    <h2 class="h2">I’m a Software Engineer at ASU.</h2>
+    <p class="lede">
+      I build front-end, back-end, and full-stack projects to solve real-world problems and enhance user experiences.
+    </p>
+    <a href="#work" class="btn-outline">Check out my work</a>
+  </section>
 
-       <div class="project-card">
-        <img src="images/email.png" alt="Project 3" />
-        <div class="project-overlay">
-          <a href="https://github.com/ayeshaArif6/EmailWriter" class="view-btn">View Project</a>
-        </div>
-        <div class="project-info">
-          <h3>Smart Email Assistant</h3>
-          <p>A chrome bowser extension built using Google's Gemini API integrated into a full stack Spring boot project.</p>
-        </div>
+  <!-- About -->
+  <section class="container section" id="about">
+    <div class="section-title"><span>›</span><h2>About Me</h2><div class="rule"></div></div>
+    <div class="about-grid">
+      <div>
+        <p class="copy">
+          Hello! I’m Ayesha. I love building fast, clean interfaces and the APIs that power them.
+        </p>
+        <ul class="tech-list">
+          <li>React</li><li>TypeScript</li><li>Java</li><li>Spring Boot</li>
+          <li>Firebase</li><li>MongoDB</li><li>SQL</li><li>Tailwind</li>
+        </ul>
       </div>
-
-      <!--Add chatbot info here-->
-      <!-- Project Card 1 -->
-      <div class="project-card">
-        <img src="images/camerapic2.png" alt="Project 1" />
-        <div class="project-overlay">
-           <a href="https://github.com/ayeshaArif6/Sortify" class="view-btn">View Project</a>
-        </div>
-        <div class="project-info">
-          <h3>Sortify</h3>
-          <p>An AI-powered image organizer built using Google Cloud's vision API.</p>
-        </div>
-      </div>
-
-      <!-- Project Card 2 -->
-      <div class="project-card">
-        <img src="images/datacollection.png" alt="Project 2" />
-        <div class="project-overlay">
-           <a href="https://github.com/Field-Day-2022/Field-Day-Flex" class="view-btn">View Project</a>
-        </div>
-        <div class="project-info">
-          <h3>Field Day Flex</h3>
-          <p>A customizable data-collection tool.</p>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="images/bookdatabase.png" alt="Project 2" />
-        <div class="project-overlay">
-           <a href="https://github.com/ayeshaArif6/Book-Database" class="view-btn">View Project</a>
-        </div>
-        <div class="project-info">
-          <h3>Book Database</h3>
-          <p>A full-stack mySQL project.</p>
-        </div>
+      <div class="portrait-wrap">
+        <img src="images/ayesha.jpg" alt="Ayesha portrait" class="portrait"/>
+        <div class="portrait-frame"></div>
       </div>
     </div>
-    </section>
+  </section>
+
+  <!-- Work -->
+  <section class="container section" id="work">
+    <div class="section-title"><span>›</span><h2>Some Things I’ve Built</h2><div class="rule"></div></div>
+
+    <!-- Project row (repeat, alternate .rev on .project) -->
+    <article class="project">
+      <div class="shot"><img src="images/project1.jpg" alt="Project screenshot"/></div>
+      <div class="project-text">
+        <p class="tag">Work in Progress</p>
+        <h3 class="project-title">Internal Business Intelligence Tool</h3>
+        <div class="project-card">
+          Building an internal tool to track earnings, locations, and seasonal trends to optimize operations.
+        </div>
+        <ul class="stack"><li>React</li><li>TypeScript</li><li>MongoDB</li></ul>
+      </div>
+    </article>
+
+    <article class="project rev">
+      <div class="shot"><img src="images/project2.jpg" alt="Project screenshot"/></div>
+      <div class="project-text">
+        <p class="tag">Past Project</p>
+        <h3 class="project-title">Sortify</h3>
+        <div class="project-card">
+          AI-powered image organizer with Google Cloud Vision, filters, and tags.
+        </div>
+        <ul class="stack"><li>React</li><li>Firebase</li><li>Vision API</li></ul>
+      </div>
+    </article>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <p class="eyebrow center">What’s Next?</p>
+    <h3 class="h3 center">Get In Touch</h3>
+    <p class="copy center">I’m always up for interesting projects, internships, or collabs.</p>
+    <a href="mailto:ayesha@example.com" class="btn-outline">Say Hello</a>
+    <p class="tiny">Built by Ayesha Arif</p>
+  </section>
+
+  <script>
+    // optional: add 'active' class on nav links using IntersectionObserver later
+  </script>
 </body>
 </html>
