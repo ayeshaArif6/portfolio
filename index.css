@@ -1,16 +1,16 @@
 /* ==========================================================================
-   Ayesha Portfolio — complete CSS (overlap cards + aligned About + inline tech)
+   Ayesha Portfolio — complete CSS (overlap cards + left-aligned About + inline tech)
    ========================================================================== */
 
 /* ---------- Tokens / base ---------- */
 :root{
-  --bg:#11151a;           /* deep slate */
-  --text:#e5e7eb;         /* zinc-200 */
-  --muted:#a1a1aa;        /* zinc-400 */
-  --card:#0b2230;         /* blue-ish panel */
-  --panel:#0f172a;        /* dark panel */
-  --line:#3f3f46;         /* zinc-700 */
-  --accent:#f59e0b;       /* warm orange */
+  --bg:#11151a;
+  --text:#e5e7eb;
+  --muted:#a1a1aa;
+  --card:#0b2230;
+  --panel:#0f172a;
+  --line:#3f3f46;
+  --accent:#f59e0b;
   --radius:14px;
 }
 
@@ -25,29 +25,29 @@ body{
 img{ max-width:100%; display:block }
 a{ color:inherit; text-decoration:none }
 
-/* Focus visible */
+/* Focus */
 :focus-visible{
   outline:2px solid color-mix(in srgb, var(--accent) 60%, #fff);
   outline-offset:3px; border-radius:8px;
 }
 
-/* Screen reader only utility */
+/* SR-only */
 .sr-only{
   position:absolute;width:1px;height:1px;padding:0;margin:-1px;
   overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
 }
 
-/* Anchor offset so sticky nav doesn't cover headings */
+/* Sticky-nav offset for anchors */
 #about,#experience,#work,#contact{ scroll-margin-top:90px }
 
 /* ---------- Layout ---------- */
 .container{ max-width:1100px; margin:0 auto; padding:0 24px }
 .section{ padding:96px 0 }
 .hero{ padding:140px 0 120px }
-.rule{ flex:1; height:1px; background:var(--line); background:linear-gradient(90deg,var(--line),transparent) }
+.rule{ flex:1; height:1px; background:linear-gradient(90deg,var(--line),transparent) }
 .center{ text-align:center }
 
-/* ---------- Typography ---------- */
+/* ---------- Type ---------- */
 .eyebrow{ color:var(--accent); letter-spacing:.2em; font-size:.85rem }
 .h1{ font-weight:800; line-height:1.05; margin:.3em 0 .1em; font-size:clamp(40px, 6vw, 64px) }
 .h2{ color:#cbd5e1; margin:0 0 .6em; font-size:clamp(24px, 4vw, 40px) }
@@ -64,7 +64,6 @@ a{ color:inherit; text-decoration:none }
   transition:.2s ease; transform:translateZ(0);
 }
 .btn-outline:hover{
-  background:rgba(245,158,11,.15);
   background:color-mix(in srgb, var(--accent) 15%, transparent);
   transform:translateY(-1px);
 }
@@ -80,7 +79,6 @@ a{ color:inherit; text-decoration:none }
 .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 24px }
 .logo{
   display:grid; place-content:center; width:36px; height:36px;
-  border:1px solid #8a5300; /* fallback */
   border:1px solid color-mix(in srgb, var(--accent) 40%, #000);
   border-radius:12px; color:var(--accent); font-weight:700;
 }
@@ -108,33 +106,9 @@ a{ color:inherit; text-decoration:none }
 .section-title{ display:flex; align-items:center; gap:12px }
 .section-title span{ color:var(--accent); font-weight:700 }
 
-/* ---------- About ---------- */
+/* ---------- About (base) ---------- */
 .about-grid{ display:grid; gap:28px; align-items:start }
 @media (min-width:920px){ .about-grid{ grid-template-columns:1.2fr .8fr } }
-
-/* Align the About content block with the heading text (not too indented) */
-@media (min-width:700px){
-  #about .about-grid{ margin-left:22px; } /* ~ chevron + gap */
-}
-
-/* --- Tech stack: single inline list with separators, wraps nicely --- */
-.tech-list{
-  display:flex; flex-wrap:wrap; gap:0; margin-top:18px; padding-left:0;
-  color:#e5e7eb;
-}
-.tech-list li{
-  list-style:none; padding-left:0; position:relative;
-}
-.tech-list li::before{ content:none }              /* remove chevron bullets */
-.tech-list li + li::before{
-  content:'·'; color:var(--muted); margin:0 12px;  /* separator dot */
-}
-
-/* ---------- (kept for old two-column layout, not used now) ----------
-.tech-list{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:8px 24px; }
-.tech-list li{ padding-left:20px }
-.tech-list li::before{ content:'›'; position:absolute; left:0; color:var(--accent) }
---------------------------------------------------------------------- */
 
 /* ---------- Projects ---------- */
 .project{ display:grid; gap:24px; align-items:center; margin:56px 0 }
@@ -157,13 +131,11 @@ a{ color:inherit; text-decoration:none }
 .project-gh{ width:24px; height:24px; padding:2px; border-radius:6px }
 
 /* ===== Overlapping description card (margin-based) ===== */
-.project{ --overlap: 72px; } /* increase to 96px/120px for stronger overlap */
+.project{ --overlap: 72px; }
 @media (min-width: 920px){
   .project{ position: relative; overflow: visible }
   .project .shot{ position: relative; z-index: 1 }
   .project .project-text{ position: relative; z-index: 2 }
-
-  /* Image on LEFT (default) → pull card LEFT */
   .project:not(.rev) .project-card{
     margin-left: calc(-1 * var(--overlap));
     background: rgba(11,34,48,.88);
@@ -172,7 +144,6 @@ a{ color:inherit; text-decoration:none }
     box-shadow: 0 16px 48px rgba(0,0,0,.45);
     max-width: 720px;
   }
-  /* Image on RIGHT (.rev) → pull card RIGHT */
   .project.rev .project-card{
     margin-right: calc(-1 * var(--overlap));
     background: rgba(11,34,48,.88);
@@ -182,13 +153,51 @@ a{ color:inherit; text-decoration:none }
     max-width: 720px;
   }
 }
-/* No overlap on small screens */
 @media (max-width: 919px){ .project{ --overlap: 0px } }
 
 /* ---------- Contact ---------- */
 .contact{ max-width:720px; margin:0 auto; padding:120px 24px 80px; text-align:center }
 
-/* ---------- Motion preferences ---------- */
+/* ---------- Motion prefs ---------- */
 @media (prefers-reduced-motion: reduce){
   .btn-outline, .si{ transition:none; transform:none !important }
+}
+
+/* ======================================================================
+   OVERRIDES to fix About section (force left alignment + inline tech list)
+   ====================================================================== */
+
+/* 1) Force the About section to behave like a single left-aligned column,
+      even if older “centered” rules are still in the stylesheet/cache. */
+@media (min-width:700px){
+  #about .section-title{ justify-content:flex-start !important; }
+  #about .about-grid{
+    grid-template-columns: 1fr !important; /* one column */
+    max-width: none !important;
+    margin-inline: 0 !important;
+    text-align: left !important;
+    justify-items: start !important;
+    margin-left: 22px !important; /* align with heading text (past chevron) */
+  }
+}
+
+/* 2) Inline tech list with dot separators (override any old two-column rules) */
+#about .tech-list{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:0 !important;
+  margin-top:18px !important;
+  padding-left:0 !important;
+  color:#e5e7eb !important;
+}
+#about .tech-list li{
+  list-style:none !important;
+  padding:0 !important;
+  position:relative !important;
+}
+#about .tech-list li::before{ content:none !important; } /* kill chevrons */
+#about .tech-list li + li::before{
+  content:'·' !important;
+  color:var(--muted) !important;
+  margin:0 12px !important;
 }
