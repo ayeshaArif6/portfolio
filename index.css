@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Ayesha Portfolio — complete CSS
+   Ayesha Portfolio — complete CSS with overlapping cards
    ========================================================================== */
 
 /* ---------- Tokens / base ---------- */
@@ -14,36 +14,25 @@
   --radius:14px;
 }
 
-*,
-*::before,
-*::after{ box-sizing:border-box }
-
+*,*::before,*::after{ box-sizing:border-box }
 html,body{ margin:0; padding:0 }
 html{ scroll-behavior:smooth }
-
 body{
   font:16px/1.6 Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-  color:var(--text);
-  background:var(--bg);
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
+  color:var(--text); background:var(--bg);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
-
 img{ max-width:100%; display:block }
-a{ color:inherit; }
+a{ color:inherit; text-decoration:none }
 
-/* Focus styles for keyboard users */
+/* Focus visible */
 :focus-visible{
   outline:2px solid color-mix(in srgb, var(--accent) 60%, #fff);
-  outline-offset:3px;
-  border-radius:8px;
+  outline-offset:3px; border-radius:8px;
 }
 
-/* Screen reader only utility */
-.sr-only{
-  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
-  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
-}
+/* SR-only */
+.sr-only{ position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0 }
 
 /* Anchor offset so sticky nav doesn't cover headings */
 #about,#experience,#work,#contact{ scroll-margin-top:90px }
@@ -56,23 +45,9 @@ a{ color:inherit; }
 .center{ text-align:center }
 
 /* ---------- Typography ---------- */
-.eyebrow{
-  color:var(--accent);
-  letter-spacing:.2em;
-  font-size:.85rem;
-}
-
-.h1{
-  font-weight:800;
-  line-height:1.05;
-  margin:.3em 0 .1em;
-  font-size:clamp(40px, 6vw, 64px);
-}
-.h2{
-  color:#cbd5e1;
-  margin:0 0 .6em;
-  font-size:clamp(24px, 4vw, 40px);
-}
+.eyebrow{ color:var(--accent); letter-spacing:.2em; font-size:.85rem }
+.h1{ font-weight:800; line-height:1.05; margin:.3em 0 .1em; font-size:clamp(40px, 6vw, 64px) }
+.h2{ color:#cbd5e1; margin:0 0 .6em; font-size:clamp(24px, 4vw, 40px) }
 .h3{ font-size:clamp(26px, 3.5vw, 36px); margin:.1em 0 .3em }
 .lede{ color:#cbd5e1; max-width:720px }
 .copy{ color:#d1d5db }
@@ -95,7 +70,7 @@ a{ color:inherit; }
 .nav{
   position:sticky; top:0; z-index:50;
   background:rgba(17,21,26,.6);
-  -webkit-backdrop-filter:saturate(140%) blur(8px); /* Safari */
+  -webkit-backdrop-filter:saturate(140%) blur(8px);
   backdrop-filter:saturate(140%) blur(8px);
   border-bottom:1px solid rgba(255,255,255,.04);
 }
@@ -104,10 +79,10 @@ a{ color:inherit; }
   display:grid; place-content:center; width:36px; height:36px;
   border:1px solid #8a5300; /* fallback */
   border:1px solid color-mix(in srgb, var(--accent) 40%, #000);
-  border-radius:12px; color:var(--accent); text-decoration:none; font-weight:700;
+  border-radius:12px; color:var(--accent); font-weight:700;
 }
 .links{ display:flex; gap:18px; align-items:center }
-.links a{ color:var(--text); text-decoration:none; opacity:.9 }
+.links a{ opacity:.9 }
 .links a:hover{ color:var(--accent) }
 
 /* ---------- Side rails ---------- */
@@ -115,40 +90,16 @@ a{ color:inherit; }
   position:fixed; bottom:0; z-index:40; display:none;
   flex-direction:column; align-items:center; gap:12px;
 }
-@media (min-width:700px){
-  .rail-left,.rail-right{ display:flex }
-}
-.rail-left{ left:24px }
-.rail-right{ right:24px }
-.email{
-  writing-mode:vertical-rl;
-  color:color-mix(in srgb, var(--accent) 90%, #fff);
-  text-decoration:none; letter-spacing:.12em; padding:6px 0;
-}
+@media (min-width:700px){ .rail-left,.rail-right{ display:flex } }
+.rail-left{ left:24px } .rail-right{ right:24px }
+.email{ writing-mode:vertical-rl; color:color-mix(in srgb, var(--accent) 90%, #fff); letter-spacing:.12em; padding:6px 0 }
 .rail-line{ width:1px; height:90px; background:#52525b; margin-top:6px }
 
 /* Exact brand icons via masks (Simple Icons) */
-.si{
-  width:26px; height:26px; display:inline-block;
-  background-color:#a1a1aa; opacity:.9;
-  transition:opacity .2s, transform .2s, background-color .2s;
-}
+.si{ width:26px; height:26px; display:inline-block; background-color:#a1a1aa; opacity:.9; transition:opacity .2s, transform .2s, background-color .2s }
 .si:hover{ opacity:1; transform:translateY(-1px); background-color:var(--accent) }
-.si-github{
-  -webkit-mask:url("https://cdn.simpleicons.org/github") no-repeat 50% 50%/contain;
-          mask:url("https://cdn.simpleicons.org/github") no-repeat 50% 50%/contain;
-}
-.si-linkedin{
-  -webkit-mask:url("https://cdn.simpleicons.org/linkedin") no-repeat 50% 50%/contain;
-          mask:url("https://cdn.simpleicons.org/linkedin") no-repeat 50% 50%/contain;
-}
-
-/* Legacy square icon style (safe to keep if used anywhere) */
-.icon{
-  display:grid; place-content:center; width:28px; height:28px; border-radius:8px;
-  background:#0f172a; color:#cbd5e1; text-decoration:none; opacity:.8;
-}
-.icon:hover{ opacity:1 }
+.si-github{ -webkit-mask:url("https://cdn.simpleicons.org/github") no-repeat 50% 50%/contain; mask:url("https://cdn.simpleicons.org/github") no-repeat 50% 50%/contain }
+.si-linkedin{ -webkit-mask:url("https://cdn.simpleicons.org/linkedin") no-repeat 50% 50%/contain; mask:url("https://cdn.simpleicons.org/linkedin") no-repeat 50% 50%/contain }
 
 /* ---------- Section titles ---------- */
 .section-title{ display:flex; align-items:center; gap:12px }
@@ -156,65 +107,67 @@ a{ color:inherit; }
 
 /* ---------- About ---------- */
 .about-grid{ display:grid; gap:28px; align-items:start }
-@media (min-width:920px){
-  .about-grid{ grid-template-columns:1.2fr .8fr }
-}
-.tech-list{
-  display:grid; grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:8px 24px; margin-top:18px; color:#e5e7eb;
-  padding-left:0;
-}
+@media (min-width:920px){ .about-grid{ grid-template-columns:1.2fr .8fr } }
+.tech-list{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:8px 24px; margin-top:18px; color:#e5e7eb; padding-left:0 }
 .tech-list li{ list-style:none; position:relative; padding-left:20px }
 .tech-list li::before{ content:'›'; position:absolute; left:0; color:var(--accent) }
 .portrait-wrap{ position:relative }
 .portrait{ width:100%; aspect-ratio:1/1; border-radius:16px; object-fit:cover }
-.portrait-frame{
-  position:absolute; inset:-14px; border-radius:18px;
-  border:1px solid var(--accent); opacity:.6; pointer-events:none;
-}
+.portrait-frame{ position:absolute; inset:-14px; border-radius:18px; border:1px solid var(--accent); opacity:.6; pointer-events:none }
 
-/* ===== Overlapping project description card ===== */
+/* ---------- Projects ---------- */
+.project{ display:grid; gap:24px; align-items:center; margin:56px 0 }
+@media (min-width:920px){ .project{ grid-template-columns:1fr 1fr } }
+.project.rev > *:first-child{ order:2 }
 
-/* Default amount to overlap into the image */
-.project{ --overlap-x: -56px; }           /* image on LEFT → push card LEFT */
-.project.rev{ --overlap-x: 56px; }        /* image on RIGHT → push card RIGHT */
+.shot{ background:#0b1220; border-radius:14px; padding:8px; box-shadow:0 4px 30px rgba(0,0,0,.25) }
+.shot img{ width:100%; border-radius:10px }
 
+.tag{ text-transform:uppercase; letter-spacing:.15em; color:#bcbcc2; font-size:12px; margin:0 0 4px }
+.project-title{ color:color-mix(in srgb, var(--accent) 60%, #fff 40%); font-size:28px; margin:.2em 0 }
+.project-card{ background:var(--card); padding:18px; border-radius:14px; border:1px solid rgba(255,255,255,.06) }
+
+.stack{ display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 0; padding:0 }
+.stack li{ list-style:none; background:#18181b; border-radius:999px; padding:6px 10px; color:#a1a1aa; font-size:12px }
+
+/* Tags + GitHub icon row */
+.project-meta{ display:flex; align-items:center; gap:12px; margin-top:10px }
+.project-meta .stack{ margin:0 }
+.project-gh{ width:24px; height:24px; padding:2px; border-radius:6px }
+
+/* ===== Overlapping description card (margin-based) ===== */
+.project{ --overlap: 72px; } /* increase to 96px/120px for stronger overlap */
 @media (min-width: 920px){
-  /* make sure the card sits above the screenshot */
-  .project .shot{ position: relative; z-index: 1; }
-  .project .project-text{ position: relative; z-index: 2; }
+  .project{ position: relative; overflow: visible }
+  .project .shot{ position: relative; z-index: 1 }
+  .project .project-text{ position: relative; z-index: 2 }
 
-  /* float the description card into the image area */
-  .project .project-card{
-    position: relative;
-    transform: translateX(var(--overlap-x));
-    background: rgba(11,34,48,.88);              /* deep blue like the ref */
+  /* Image on LEFT (default) → pull card LEFT */
+  .project:not(.rev) .project-card{
+    margin-left: calc(-1 * var(--overlap));
+    background: rgba(11,34,48,.88);
     border: 1px solid rgba(255,255,255,.06);
     border-radius: 14px;
-    box-shadow: 0 16px 48px rgba(0,0,0,.45);      /* lift it above image */
+    box-shadow: 0 16px 48px rgba(0,0,0,.45);
+    max-width: 720px;
   }
-
-  /* optional: make the card a bit wider for a stronger overlap */
-  .project .project-card{ max-width: 720px; }
+  /* Image on RIGHT (.rev) → pull card RIGHT */
+  .project.rev .project-card{
+    margin-right: calc(-1 * var(--overlap));
+    background: rgba(11,34,48,.88);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 14px;
+    box-shadow: 0 16px 48px rgba(0,0,0,.45);
+    max-width: 720px;
+  }
 }
-
-/* On mobile/tablet, don’t overlap (stack cleanly) */
-@media (max-width: 919px){
-  .project{ --overlap-x: 0px; }
-}
-
-
-/* Row for tags + GitHub icon */
-.project-meta{ display:flex; align-items:center; gap:12px; margin-top:10px }
-.project-meta .stack{ margin:0 } /* prevent double spacing */
-
-/* project-row icon size + hit area */
-.project-gh{ width:24px; height:24px; padding:2px; border-radius:6px }
+/* No overlap on small screens */
+@media (max-width: 919px){ .project{ --overlap: 0px } }
 
 /* ---------- Contact ---------- */
 .contact{ max-width:720px; margin:0 auto; padding:120px 24px 80px; text-align:center }
 
 /* ---------- Motion preferences ---------- */
 @media (prefers-reduced-motion: reduce){
-  .btn-outline, .si{ transition:none; transform:none !important; }
+  .btn-outline, .si{ transition:none; transform:none !important }
 }
