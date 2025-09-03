@@ -23,10 +23,10 @@
 
   <!-- Side rails -->
   <aside class="rail-left">
-    <a href="https://github.com/ayeshaArif6" aria-label="GitHub" class="icon">G</a>
-    <a href="https://linkedin.com/in/..." aria-label="LinkedIn" class="icon">in</a>
-    <div class="rail-line"></div>
-  </aside>
+  <a class="si si-github"  href="https://github.com/ayeshaArif6"  aria-label="GitHub"   target="_blank" rel="noopener"></a>
+  <a class="si si-linkedin" href="https://www.linkedin.com/in/your-handle" aria-label="LinkedIn" target="_blank" rel="noopener"></a>
+  <div class="rail-line"></div>
+</aside>
   <aside class="rail-right">
     <a href="mailto:ayesha@example.com" class="email">ayesha@example.com</a>
     <div class="rail-line"></div>
@@ -49,7 +49,7 @@
     <div class="about-grid">
       <div>
         <p class="copy">
-          Hello! I’m Ayesha. I'm a software engineer that loves building fast, clean interfaces and the APIs that power them. I currently work as a web development intern at Unite for Rights, an NPO based in San Francisco, California, 
+          Hello! I’m Ayesha, a Software Engineer that loves building fast, clean interfaces and the APIs that power them. I currently work as a web development intern at Unite for Rights, an NPO based in San Francisco, California, 
           where I'm incharge of improving the UI/UX of their website, fixing bugs and adding elements to their front-end, as well as improving their search engine optimization. Through my projects, I strive to solve real-world problems
           and enhance user experiences. My go-to tech stack includes:
         </p>
@@ -71,29 +71,45 @@
 
     <!-- Project row (repeat, alternate .rev on .project) -->
     <article class="project">
-      <div class="shot"><img src="images/project1.jpg" alt="Project screenshot"/></div>
-      <div class="project-text">
-        <p class="tag">Work in Progress</p>
-        <h3 class="project-title">Smart Email Assistant</h3>
-        <div class="project-card">
-          A chrome bowser extension built using Google's Gemini API integrated into a full stack Spring boot project.
-        </div>
-        <ul class="stack"><li>Java</li><li>Spring Boot</li><li>Gemini</li><li>JavaScript</li></ul>
-      </div>
-    </article>
+  <div class="shot"><img src="images/project1.jpg" alt="Project screenshot"/></div>
+  <div class="project-text">
+    <p class="tag">Work in Progress</p>
+    <h3 class="project-title">Smart Email Assistant</h3>
+    <div class="project-card">
+      A chrome browser extension built using Google's Gemini API integrated into a full stack Spring Boot project.
+    </div>
 
-    <article class="project rev">
-      <div class="shot"><img src="images/project2.jpg" alt="Project screenshot"/></div>
-      <div class="project-text">
-        <p class="tag">Past Project</p>
-        <h3 class="project-title">Sortify</h3>
-        <div class="project-card">
-          AI-powered image organizer built using Google Cloud's Vision API.
-        </div>
-        <ul class="stack"><li>React</li><li>Firebase</li><li>Vision API</li></ul>
-      </div>
-    </article>
-  </section>
+    <!-- tags + GitHub icon row -->
+    <div class="project-meta">
+      <ul class="stack"><li>Java</li><li>Spring Boot</li><li>Gemini</li><li>JavaScript</li></ul>
+      <a class="si si-github project-gh"
+         href="https://github.com/ayeshaArif6/smart-email-assistant"  <!-- change to your repo -->
+         target="_blank" rel="noopener"
+         aria-label="View Smart Email Assistant on GitHub"></a>
+    </div>
+  </div>
+</article>
+
+<article class="project rev">
+  <div class="shot"><img src="images/project2.jpg" alt="Project screenshot"/></div>
+  <div class="project-text">
+    <p class="tag">Past Project</p>
+    <h3 class="project-title">Sortify</h3>
+    <div class="project-card">
+      AI-powered image organizer built using Google Cloud's Vision API.
+    </div>
+
+    <!-- tags + GitHub icon row -->
+    <div class="project-meta">
+      <ul class="stack"><li>React</li><li>Firebase</li><li>Vision API</li></ul>
+      <a class="si si-github project-gh"
+         href="https://github.com/ayeshaArif6/sortify"   <!-- change to your repo -->
+         target="_blank" rel="noopener"
+         aria-label="View Sortify on GitHub"></a>
+    </div>
+  </div>
+</article>
+
 
   <!-- Contact -->
   <section class="contact" id="contact">
