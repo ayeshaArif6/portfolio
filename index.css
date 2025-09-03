@@ -173,41 +173,36 @@ a{ color:inherit; }
   border:1px solid var(--accent); opacity:.6; pointer-events:none;
 }
 
-/* ---------- Projects ---------- */
-.project{
-  display:grid; gap:24px; align-items:center; margin:56px 0;
-}
-@media (min-width:920px){
-  .project{ grid-template-columns:1fr 1fr }
-}
-.project.rev > *:first-child{ order:2 }
+/* ===== Overlapping project description card ===== */
 
-.shot{
-  background:#0b1220; border-radius:14px; padding:8px;
-  box-shadow:0 4px 30px rgba(0,0,0,.25);
-}
-.shot img{ width:100%; border-radius:10px }
+/* Default amount to overlap into the image */
+.project{ --overlap-x: -56px; }           /* image on LEFT → push card LEFT */
+.project.rev{ --overlap-x: 56px; }        /* image on RIGHT → push card RIGHT */
 
-.tag{
-  text-transform:uppercase; letter-spacing:.15em;
-  color:#bcbcc2; font-size:12px; margin:0 0 4px;
-}
-.project-title{
-  color:color-mix(in srgb, var(--accent) 60%, #fff 40%);
-  font-size:28px; margin:.2em 0;
-}
-.project-card{
-  background:var(--card); padding:18px; border-radius:14px;
-  border:1px solid rgba(255,255,255,.06);
+@media (min-width: 920px){
+  /* make sure the card sits above the screenshot */
+  .project .shot{ position: relative; z-index: 1; }
+  .project .project-text{ position: relative; z-index: 2; }
+
+  /* float the description card into the image area */
+  .project .project-card{
+    position: relative;
+    transform: translateX(var(--overlap-x));
+    background: rgba(11,34,48,.88);              /* deep blue like the ref */
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 14px;
+    box-shadow: 0 16px 48px rgba(0,0,0,.45);      /* lift it above image */
+  }
+
+  /* optional: make the card a bit wider for a stronger overlap */
+  .project .project-card{ max-width: 720px; }
 }
 
-.stack{
-  display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 0; padding:0;
+/* On mobile/tablet, don’t overlap (stack cleanly) */
+@media (max-width: 919px){
+  .project{ --overlap-x: 0px; }
 }
-.stack li{
-  list-style:none; background:#18181b; border-radius:999px;
-  padding:6px 10px; color:#a1a1aa; font-size:12px;
-}
+
 
 /* Row for tags + GitHub icon */
 .project-meta{ display:flex; align-items:center; gap:12px; margin-top:10px }
