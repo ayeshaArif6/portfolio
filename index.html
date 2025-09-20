@@ -4,14 +4,37 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ayesha Arif — Software Engineer</title>
+  <meta name="description" content="Portfolio of Ayesha Arif — full-stack projects, case studies, and contact." />
+
+  <!-- SEO / Social -->
+  <meta property="og:title" content="Ayesha Arif — Software Engineer">
+  <meta property="og:description" content="Full-stack projects with React, Firebase, Spring Boot, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Ayesha Arif",
+    "url":"https://<your-domain>",
+    "sameAs":["https://github.com/ayeshaArif6","https://www.linkedin.com/in/ayesha-arif-579584343/"],
+    "knowsAbout":["React","Firebase","Java","Spring Boot","UI/UX"]
+  }
+  </script>
+
+  <link rel="icon" href="images/favicon.png">
   <link rel="stylesheet" href="index.css" />
-  <meta name="description" content="Ayesha Arif — Software Engineer portfolio" />
 </head>
 <body>
+  <a class="skip-link" href="#home">Skip to content</a>
+
   <!-- Sticky Nav -->
-  <header class="nav">
-    <div class="nav-inner">
-      <a class="logo" href="#">A</a>
+  <header class="nav" role="banner">
+    <div class="nav-inner" role="navigation" aria-label="Primary">
+      <a class="logo" href="#home" aria-label="Home">A</a>
       <nav class="links">
         <a href="#about">› About</a>
         <a href="#work">› Work</a>
@@ -22,28 +45,33 @@
 
   <!-- Side rails -->
   <aside class="rail-left" aria-hidden="false">
-    <a class="si si-github"  href="https://github.com/ayeshaArif6" aria-label="GitHub" target="_blank" rel="noopener"></a>
-    <a class="si si-linkedin" href="https://www.linkedin.com/in/ayesha-arif-579584343/" aria-label="LinkedIn" target="_blank" rel="noopener"></a>
+    <a class="si si-github"  href="https://github.com/ayeshaArif6" aria-label="GitHub" target="_blank" rel="noopener noreferrer"></a>
+    <a class="si si-linkedin" href="https://www.linkedin.com/in/ayesha-arif-579584343/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
     <div class="rail-line"></div>
   </aside>
   <aside class="rail-right" aria-hidden="false">
-    <a href="mailto:ayesha@example.com" class="email">22ayesha.arif@gmail.com</a>
+    <!-- unified email: visible + mailto + copy-btn -->
+    <a href="mailto:22ayesha.arif@gmail.com" class="email">22ayesha.arif@gmail.com</a>
+    <button id="copyEmail" class="rail-copy" aria-label="Copy email">Copy</button>
     <div class="rail-line"></div>
   </aside>
 
   <!-- Hero -->
-  <section class="container hero" id="home">
+  <section class="container hero reveal" id="home">
     <p class="eyebrow">Hi, my name is</p>
     <h1 class="h1">Ayesha Arif.</h1>
     <h2 class="h2">I’m a Graduate Computer Science student at ASU.</h2>
     <p class="lede">
       I build front-end, back-end, and full-stack projects to solve real-world problems and enhance user experiences.
     </p>
-    <a href="#work" class="btn-outline">Check out my work</a>
+    <div class="cta-row">
+      <a href="#work" class="btn-outline">Check out my work</a>
+      <a href="/Ayesha_Resume.pdf" class="btn-outline" target="_blank" rel="noopener">View Résumé</a>
+    </div>
   </section>
 
   <!-- About -->
-  <section class="container section" id="about">
+  <section class="container section reveal" id="about">
     <div class="section-title"><span>›</span><h2>About Me</h2><div class="rule"></div></div>
     <div class="about-grid">
       <div>
@@ -62,26 +90,24 @@
   </section>
 
   <!-- Work -->
-  <section class="container section" id="work">
+  <section class="container section reveal" id="work">
     <div class="section-title"><span>›</span><h2>Some Things I’ve Built</h2><div class="rule"></div></div>
 
     <!-- Project row (image LEFT) -->
     <article class="project">
       <div class="shot">
-        <img src="images/project2.png" alt="Smart Email Assistant dashboard screenshot"/>
+        <img src="images/project2.png" alt="Smart Email Assistant — dashboard screenshot" loading="lazy"/>
       </div>
       <div class="project-text">
         <h3 class="project-title">Smart Email Assistant</h3>
         <div class="project-card">
           A Chrome browser extension built using Google’s Gemini API integrated into a full-stack Spring Boot project.
         </div>
-
-        <!-- tags + GitHub icon row -->
         <div class="project-meta">
           <ul class="stack"><li>Java</li><li>Spring Boot</li><li>Gemini</li><li>JavaScript</li></ul>
           <a class="si si-github project-gh"
              href="https://github.com/ayeshaArif6/EmailWriter"
-             target="_blank" rel="noopener"
+             target="_blank" rel="noopener noreferrer"
              aria-label="View Smart Email Assistant on GitHub"><span class="sr-only">GitHub</span></a>
         </div>
       </div>
@@ -90,56 +116,56 @@
     <!-- Project row (image RIGHT) -->
     <article class="project rev">
       <div class="shot">
-        <img src="images/project1.png" alt="Sortify app UI screenshot"/>
+        <img src="images/project1.png" alt="Sortify — AI-powered image organizer UI" loading="lazy"/>
       </div>
       <div class="project-text">
         <h3 class="project-title">Sortify</h3>
         <div class="project-card">
           AI-powered image organizer built using Google Cloud’s Vision API.
         </div>
-
-        <!-- tags + GitHub icon row -->
         <div class="project-meta">
           <ul class="stack"><li>React</li><li>Firebase</li><li>Vision API</li></ul>
           <a class="si si-github project-gh"
              href="https://github.com/ayeshaArif6/Sortify"
-             target="_blank" rel="noopener"
+             target="_blank" rel="noopener noreferrer"
              aria-label="View Sortify on GitHub"><span class="sr-only">GitHub</span></a>
         </div>
       </div>
     </article>
 
-     <!-- Project row (image LEFT) -->
+    <!-- Project row (image LEFT) -->
     <article class="project">
       <div class="shot">
-        <img src="images/project3.png" alt="Field Day Flex dashboard screenshot"/>
+        <img src="images/project3.png" alt="Field Day Flex — dashboard screenshot" loading="lazy"/>
       </div>
       <div class="project-text">
         <h3 class="project-title">Field Day Flex</h3>
         <div class="project-card">
-          A flexible, customizable data collection tool that can store up to 1500+ database entries.  
+          A flexible, customizable data collection tool that can store up to 1500+ database entries.
         </div>
-
-        <!-- tags + GitHub icon row -->
         <div class="project-meta">
           <ul class="stack"><li>React</li><li>Firebase</li><li>Google Auth</li><li>TypeScript</li></ul>
           <a class="si si-github project-gh"
              href="https://github.com/Field-Day-2022/Field-Day-Flex"
-             target="_blank" rel="noopener"
+             target="_blank" rel="noopener noreferrer"
              aria-label="View Field Day Flex on GitHub"><span class="sr-only">GitHub</span></a>
         </div>
       </div>
     </article>
   </section>
 
-  
-
   <!-- Contact -->
-  <section class="contact" id="contact">
+  <section class="contact reveal" id="contact">
     <p class="eyebrow center">What’s Next?</p>
     <h3 class="h3 center">Get In Touch</h3>
     <p class="copy center">I’m always up for interesting projects, internships, or collabs.</p>
-    <a href="mailto:ayesha@example.com" class="btn-outline">Say Hello</a>
+    <div class="cta-row" style="justify-content:center">
+      <a href="mailto:22ayesha.arif@gmail.com" class="btn-outline">Say Hello</a>
+      <button id="copyEmail2" class="btn-outline" type="button">Copy Email</button>
+    </div>
   </section>
+
+  <script src="index.js" defer></script>
 </body>
 </html>
+
