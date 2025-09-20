@@ -205,3 +205,31 @@ a{ color:inherit; text-decoration:none }
   color:var(--muted) !important;
   margin:0 12px !important;
 }
+
+/* Skip to content */
+.skip-link{
+  position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+}
+.skip-link:focus{
+  left:16px; top:16px; width:auto; height:auto; padding:8px 12px;
+  background:var(--panel); border:1px solid rgba(255,255,255,.08); border-radius:10px;
+}
+
+/* Rail copy button */
+.rail-copy{
+  appearance:none; background:transparent; color:var(--muted);
+  border:1px solid rgba(255,255,255,.15); border-radius:10px;
+  padding:4px 8px; font-size:12px; cursor:pointer;
+}
+.rail-copy:hover{ color:var(--accent); border-color: color-mix(in srgb, var(--accent) 50%, #fff) }
+
+/* CTA row helper */
+.cta-row{ display:flex; gap:12px; flex-wrap:wrap; margin-top:16px }
+
+/* Reveal animation */
+.reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease }
+.reveal.is-visible{ opacity:1; transform:none }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1 !important; transform:none !important; transition:none !important }
+}
+
