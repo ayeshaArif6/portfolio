@@ -1,78 +1,219 @@
 <!doctype html>
-<li class="tl-item">
-<span class="tl-dot" aria-hidden="true"></span>
-<div class="tl-card">
-<h3>Web Dev Intern — Unite for Rights <span class="pill">Remote</span></h3>
-<div class="tl-meta">UI/UX • WordPress • SEO</div>
-<ul class="tl-bullets">
-<li>Improved site navigation, hero/slider UX, and accessibility.</li>
-<li>Fixed layout bugs, refined color tokens, and enhanced SEO metadata.</li>
-</ul>
-</div>
-</li>
-<!-- TODO: Add more roles here -->
-</ol>
-</section>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ayesha Arif — Software Engineer & UI/UX-minded Builder</title>
+  <meta name="description" content="Portfolio of Ayesha Arif — full-stack projects, experience, education, and contact." />
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
-<!-- Education -->
-<section id="education" class="container section reveal">
-<div class="section-head"><h2>Education</h2></div>
-<ol class="timeline">
-<li class="tl-item">
-<span class="tl-dot" aria-hidden="true"></span>
-<div class="tl-card">
-<h3>M.S. Computer Science (Big Data)</h3>
-<div class="tl-meta">Arizona State University • <em>YYYY–Present</em></div>
-<p class="sub">Focus: data‑intensive systems, ML, and software engineering.</p>
-</div>
-</li>
-<li class="tl-item">
-<span class="tl-dot" aria-hidden="true"></span>
-<div class="tl-card">
-<h3>B.S. Software Engineering</h3>
-<div class="tl-meta">Arizona State University • <em>YYYY–YYYY</em></div>
-<p class="sub">Hands‑on capstone and full‑stack project work.</p>
-</div>
-</li>
-</ol>
-</section>
+  <!-- Styles -->
+  <link rel="stylesheet" href="./index.css?v=4" />
 
+  <!-- Favicon / Social -->
+  <link rel="icon" href="images/favicon.png">
+  <meta property="og:title" content="Ayesha Arif — Software Engineer" />
+  <meta property="og:description" content="Full-stack projects in React, Firebase, Spring Boot, and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/social-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-<!-- About -->
-<section id="about" class="container section reveal">
-<h2>About</h2>
-<p>I’m a builder who cares about craft: clean APIs, crisp UX, and shipping value quickly. I’ve built production‑ish apps in React + Firebase and backends in Spring Boot. I’m currently open to SWE internships and new‑grad roles.</p>
-<ul class="bullets">
-<li>Strengths: UI/UX polish • product sense • docs & demos</li>
-<li>Stacks: React/Vite, Firebase (Auth/Firestore/Hosting), Java/Spring, Jest/Playwright</li>
-<li>Also exploring: AI‑assisted UX, Cloud Vision, analytics dashboards</li>
-</ul>
-</section>
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ayesha Arif",
+    "jobTitle": "Software Engineer",
+    "url": "https://<your-domain>",
+    "sameAs": ["https://github.com/ayeshaArif6","https://www.linkedin.com/in/<your-handle>/"],
+    "knowsAbout": ["React","Firebase","Java","Spring Boot","UI/UX"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <!-- soft background orbs -->
+  <div class="bg-ornaments" aria-hidden="true"></div>
 
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a href="#" class="brand" aria-label="Home">AA</a>
+      <button id="menuBtn" class="icon-btn" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">☰</button>
+      <ul id="navLinks" class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌓</button></li>
+      </ul>
+    </nav>
+  </header>
 
-<!-- Contact -->
-<section id="contact" class="container section reveal">
-<h2>Contact</h2>
-<p>Reach out for roles, collaborations, or portfolio feedback.</p>
-<div class="cta-row">
-<a class="btn primary" href="mailto:22ayesha.arif@gmail.com">Email me</a>
-<button id="copyEmail" class="btn ghost" type="button">Copy email</button>
-</div>
-</section>
-</main>
+  <main id="content">
+    <!-- Hero -->
+    <section class="hero container reveal">
+      <div class="hero-text">
+        <p class="eyebrow">Hi, I’m Ayesha 👋</p>
+        <h1 class="hero-title">Full-stack engineer who sweats the UX.</h1>
+        <p class="sub">I build fast, accessible apps with React, Firebase, and Spring Boot. Currently exploring AI-assisted product experiences.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="/Ayesha_Resume.pdf" target="_blank" rel="noopener">View Résumé</a>
+          <a class="btn ghost" href="#projects">See Projects</a>
+          <a class="icon-link" href="https://github.com/ayeshaArif6" target="_blank" rel="noopener" aria-label="GitHub">GitHub ↗</a>
+          <a class="icon-link" href="https://www.linkedin.com/in/<your-handle>/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="images/hero.png" alt="Ayesha working on a laptop with UI sketches">
+      </div>
+    </section>
 
+    <!-- Projects -->
+    <section id="projects" class="container section">
+      <div class="section-head">
+        <h2>Selected Work</h2>
+        <div class="chips" role="toolbar" aria-label="Filter projects by tag">
+          <button class="chip is-active" data-filter="all">All</button>
+          <button class="chip" data-filter="react">React</button>
+          <button class="chip" data-filter="firebase">Firebase</button>
+          <button class="chip" data-filter="java">Java</button>
+          <button class="chip" data-filter="ml">AI/ML</button>
+        </div>
+      </div>
 
-<footer class="site-footer">
-<div class="container foot">
-<span>© <span id="year"></span> Ayesha Arif</span>
-<a class="foot-link" href="#">Back to top ↑</a>
-</div>
-</footer>
+      <div class="grid">
+        <article class="card reveal" data-tags="react firebase">
+          <img src="images/sortify.png" alt="Sortify gallery with tag filters" loading="lazy">
+          <div class="card-body">
+            <h3>Sortify</h3>
+            <p>AI-assisted image organizer with upload, tag suggestions, and gallery filters.</p>
+            <div class="meta"><span>React</span><span>Firebase</span><span>Vision API</span></div>
+            <div class="actions">
+              <a class="btn small" href="https://github.com/ayeshaArif6/Sortify" target="_blank" rel="noopener">Code</a>
+              <a class="btn small ghost" href="https://<live-demo-url>" target="_blank" rel="noopener">Live</a>
+            </div>
+          </div>
+        </article>
 
+        <article class="card reveal" data-tags="react firebase">
+          <img src="images/fieldday.png" alt="Field Day Flex data dashboard" loading="lazy">
+          <div class="card-body">
+            <h3>Field Day Flex</h3>
+            <p>Wildlife data collection & analysis tool with table builder, roles, and dark mode.</p>
+            <div class="meta"><span>React</span><span>Firebase</span></div>
+            <div class="actions">
+              <a class="btn small" href="https://github.com/Field-Day-2022/Field-Day-Flex" target="_blank" rel="noopener">Code</a>
+              <a class="btn small ghost" href="https://<live-demo-url>" target="_blank" rel="noopener">Live</a>
+            </div>
+          </div>
+        </article>
 
-<script>document.documentElement.classList.remove('no-js');</script>
-<script src="index.js" defer></script>
+        <article class="card reveal" data-tags="java">
+          <img src="images/safepass.png" alt="SafePass password manager mock UI" loading="lazy">
+          <div class="card-body">
+            <h3>SafePass (Backend)</h3>
+            <p>Spring Boot + JWT + encryption for a zero-knowledge password vault.</p>
+            <div class="meta"><span>Java</span><span>Spring Boot</span><span>JWT</span></div>
+            <div class="actions">
+              <a class="btn small" href="https://github.com/ayeshaArif6/safepass" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal" data-tags="ml">
+          <img src="images/ml.png" alt="ML case study visual" loading="lazy">
+          <div class="card-body">
+            <h3>ML Case Study</h3>
+            <p>Feature engineering & evaluation pipeline with clean notebooks and reports.</p>
+            <div class="meta"><span>Python</span><span>Scikit-learn</span></div>
+            <div class="actions">
+              <a class="btn small" href="https://github.com/ayeshaArif6" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="container section reveal">
+      <div class="section-head"><h2>Experience</h2></div>
+      <ol class="timeline">
+        <li class="tl-item">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="tl-card">
+            <h3>Web Dev Intern — Unite for Rights <span class="pill">Remote</span></h3>
+            <div class="tl-meta">UI/UX • WordPress • SEO</div>
+            <ul class="tl-bullets">
+              <li>Improved site navigation, hero/slider UX, and accessibility.</li>
+              <li>Fixed layout bugs, refined color tokens, and enhanced SEO metadata.</li>
+            </ul>
+          </div>
+        </li>
+        <!-- Add more roles here as needed -->
+      </ol>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="container section reveal">
+      <div class="section-head"><h2>Education</h2></div>
+      <ol class="timeline">
+        <li class="tl-item">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="tl-card">
+            <h3>M.S. Computer Science (Big Data)</h3>
+            <div class="tl-meta">Arizona State University • <em>YYYY–Present</em></div>
+            <p class="sub">Focus: data-intensive systems, ML, and software engineering.</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="tl-card">
+            <h3>B.S. Software Engineering</h3>
+            <div class="tl-meta">Arizona State University • <em>YYYY–YYYY</em></div>
+            <p class="sub">Hands-on capstone and full-stack project work.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="container section reveal">
+      <h2>About</h2>
+      <p>I’m a builder who cares about craft: clean APIs, crisp UX, and shipping value quickly. I’ve built production-ish apps in React + Firebase and backends in Spring Boot. I’m currently open to SWE internships and new-grad roles.</p>
+      <ul class="bullets">
+        <li>Strengths: UI/UX polish • product sense • docs & demos</li>
+        <li>Stacks: React/Vite, Firebase (Auth/Firestore/Hosting), Java/Spring, Jest/Playwright</li>
+        <li>Also exploring: AI-assisted UX, Cloud Vision, analytics dashboards</li>
+      </ul>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container section reveal">
+      <h2>Contact</h2>
+      <p>Reach out for roles, collaborations, or portfolio feedback.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:22ayesha.arif@gmail.com">Email me</a>
+        <button id="copyEmail" class="btn ghost" type="button">Copy email</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container foot">
+      <span>© <span id="year"></span> Ayesha Arif</span>
+      <a class="foot-link" href="#">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <script src="./index.js?v=4" defer></script>
 </body>
-
 </html>
