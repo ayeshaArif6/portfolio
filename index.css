@@ -87,7 +87,7 @@ img{max-width:100%; display:block}
 /* ==================== Projects (COMPACT + EXTRA SPACE) ==================== */
 #projects .grid{
   grid-template-columns: 1fr;
-  gap: 36px;              /* ⬅️ was 14px — more room between cards */
+  gap: 50px;              /* ⬅️ was 14px — more room between cards */
 }
 
 #projects .card{
