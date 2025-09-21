@@ -1,4 +1,3 @@
-
 // Theme persistence
 const themeToggle = document.getElementById('themeToggle');
 const root = document.documentElement;
@@ -75,7 +74,7 @@ copyBtn?.addEventListener('click', async ()=>{
 document.getElementById('year').textContent = new Date().getFullYear();
 
 
-// ===== Sunset Particle-Burst Background (warm amber/rose) =====
+// ===== Muted Sunset Particle-Burst Background =====
 (function(){
   const canvas = document.getElementById('bgfx');
   if (!canvas) return;
@@ -85,9 +84,9 @@ document.getElementById('year').textContent = new Date().getFullYear();
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // particle count scales with viewport area
-  const baseCount = Math.floor((window.innerWidth * window.innerHeight) / 2500);
-  const PCOUNT = Math.max(200, Math.min(900, baseCount));
-  const PMAX = 2.2; // px @ 1x DPR
+  const baseCount = Math.floor((window.innerWidth * window.innerHeight) / 2600);
+  const PCOUNT = Math.max(160, Math.min(700, baseCount));
+  const PMAX = 2.0; // px @ 1x DPR
   const particles = [];
 
   function resize(){
@@ -105,15 +104,15 @@ document.getElementById('year').textContent = new Date().getFullYear();
     for (let i = 0; i < PCOUNT; i++){
       const angle  = Math.random() * Math.PI * 2;
       const radius = Math.random() * Math.min(W, H) * 0.02; // spawn near center
-      const x = CX + Math.cos(angle) * radius;
-      const y = CY + Math.sin(angle) * radius;
-      const size  = (Math.random() * PMAX + 0.6) * dpr;
-      const speed = (Math.random() * 0.35 + 0.08) * dpr;
       particles.push({
-        x, y, size, angle, speed,
-        alpha: Math.random() * 0.8 + 0.2,
+        x: CX + Math.cos(angle) * radius,
+        y: CY + Math.sin(angle) * radius,
+        size: (Math.random() * PMAX + 0.6) * dpr,
+        angle,
+        speed: (Math.random() * 0.28 + 0.06) * dpr, // slower + calmer
+        alpha: Math.random() * 0.35 + 0.15,         // lower ceiling
         rot: Math.random() * Math.PI,
-        rotV: (Math.random() * 0.01 - 0.005)
+        rotV: (Math.random() * 0.008 - 0.004)
       });
     }
   }
@@ -132,46 +131,34 @@ document.getElementById('year').textContent = new Date().getFullYear();
       let a = p.alpha * (1 - dist / maxR);
       if (a < 0) a = 0;
 
-      // warm sunset squares (amber / rose)
       ctx.save();
       ctx.translate(p.x, p.y);
       ctx.rotate(p.rot);
       ctx.globalAlpha = a;
+      // muted amber / rose squares
       ctx.fillStyle = Math.random() < 0.5
-        ? 'rgba(255, 201, 120, 0.95)'  // soft amber
-        : 'rgba(255, 120, 140, 0.95)'; // warm rose
+        ? 'rgba(227, 167, 95, 0.55)'
+        : 'rgba(226, 118,118, 0.55)';
       const s = p.size;
       ctx.fillRect(-s/2, -s/2, s, s);
       ctx.restore();
 
       if (dist > maxR){
         const ang = Math.random() * Math.PI * 2;
-        const r   = Math.random() * Math.min(W, H) * 0.04;
-        p.x = CX + Math.cos(ang) * r;
-        p.y = CY + Math.sin(ang) * r;
+        const rr  = Math.random() * Math.min(W, H) * 0.04;
+        p.x = CX + Math.cos(ang) * rr;
+        p.y = CY + Math.sin(ang) * rr;
         p.angle = ang;
         p.size  = (Math.random() * PMAX + 0.6) * dpr;
-        p.speed = (Math.random() * 0.35 + 0.08) * dpr;
-        p.alpha = Math.random() * 0.8 + 0.2;
+        p.speed = (Math.random() * 0.28 + 0.06) * dpr;
+        p.alpha = Math.random() * 0.35 + 0.15;
       }
     }
   }
 
-  function loop(){
-    drawFrame();
-    if (!reduce) requestAnimationFrame(loop);
-  }
-
-  window.addEventListener('resize', ()=>{
-    particles.length = 0;
-    resize();
-    if (reduce) drawFrame();
-  });
+  function loop(){ drawFrame(); if (!reduce) requestAnimationFrame(loop); }
+  window.addEventListener('resize', ()=>{ particles.length = 0; resize(); if (reduce) drawFrame(); });
 
   resize();
-  if (reduce) {
-    drawFrame();   // static frame for reduced motion
-  } else {
-    requestAnimationFrame(loop);
-  }
+  reduce ? drawFrame() : requestAnimationFrame(loop);
 })();
