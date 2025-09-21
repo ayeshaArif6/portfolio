@@ -96,7 +96,7 @@ img{max-width:100%; display:block}
 /* Projects grid */
 .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:20px}
 .card{
-  grid-column:span 6; background:var(--card);
+  grid-column:span 12; background:var(--card);
   border:1px solid var(--border); border-radius:16px;
   overflow:hidden; box-shadow:var(--shadow); transition:transform .2s ease;
 }
