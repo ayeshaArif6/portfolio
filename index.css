@@ -1,5 +1,4 @@
 /* === Sunset Theme (Amber + Rose accents) ========================= */
-/* Dark by default; adapts to OS light mode                         */
 :root{
   --bg:#0f1117; --text:#eef2ff; --muted:#a8b0c5;
   --card:#121826; --border:#232a3a;
@@ -29,21 +28,22 @@ img{max-width:100%; display:block}
 .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:var(--card);padding:.5rem 1rem;border-radius:.5rem;box-shadow:var(--shadow)}
 :focus-visible{outline:2px solid var(--brand); outline-offset:3px}
 
-/* ---- Dark blue particle-burst canvas background ---- */
+/* ---- Sunset particle-burst canvas background ---- */
 #bgfx{
   position: fixed;
   inset: 0;
   z-index: -1;
+  /* warm radial glow */
   background:
     radial-gradient(
       circle at 50% 45%,
-      rgba(56, 189, 248, 0.20) 0%,
-      rgba(37, 99, 235, 0.12) 35%,
-      rgba(2, 6, 23, 0.92) 70%,
-      rgba(2, 6, 23, 1) 100%
+      rgba(245, 158, 11, 0.22) 0%,   /* amber center */
+      rgba(244, 63, 94,  0.16) 36%,  /* rose mid */
+      rgba(22, 8, 20,    0.92) 72%,  /* deep plum/navy */
+      rgba(10, 6, 15,    1) 100%     /* near black */
     );
 }
-/* hide older blob ornaments so the new canvas shows through */
+/* hide old blob ornaments so the canvas shines */
 .bg-ornaments{ display:none; }
 
 /* Layout */
