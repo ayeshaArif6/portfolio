@@ -19,9 +19,25 @@ img{max-width:100%; display:block}
 .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:var(--card);padding:.5rem 1rem;border-radius:.5rem;box-shadow:var(--shadow)}
 :focus-visible{outline:2px solid var(--brand); outline-offset:3px}
 
-/* Background canvas (blue burst) */
-#bgfx{position:fixed; inset:0; z-index:-1;
-  background:radial-gradient(circle at 50% 45%, rgba(56,189,248,.20) 0%, rgba(37,99,235,.12) 35%, rgba(2,6,23,.92) 70%, rgba(2,6,23,1) 100%)}
+/* Canvas background should sit above the body background */
+#bgfx{
+  position: fixed;
+  inset: 0;
+  z-index: 0;              /* was -1 */
+  pointer-events: none;    /* don't block clicks/scroll */
+  background: radial-gradient(circle at 50% 45%,
+    rgba(56,189,248,.20) 0%,
+    rgba(37,99,235,.12) 35%,
+    rgba(2,6,23,.92) 70%,
+    rgba(2,6,23,1) 100%);
+}
+
+/* All foreground content sits above the canvas */
+.site-header, main, .site-footer{
+  position: relative;
+  z-index: 1;
+}
+
 
 /* Layout */
 .container{max-width:1100px; margin:0 auto; padding:0 20px}
