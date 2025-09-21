@@ -74,7 +74,7 @@ copyBtn?.addEventListener('click', async ()=>{
 document.getElementById('year').textContent = new Date().getFullYear();
 
 
-// ===== Dark Blue Particle-Burst Background =====
+// ===== Particle-Burst Background (blue variant) =====
 (function(){
   const canvas = document.getElementById('bgfx');
   if (!canvas) return;
@@ -136,8 +136,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
       ctx.rotate(p.rot);
       ctx.globalAlpha = a;
       ctx.fillStyle = Math.random() < 0.5
-        ? 'rgba(164, 196, 255, 0.95)'
-        : 'rgba(99, 155, 255, 0.95)';
+        ? 'rgba(164, 196, 255, 0.90)'
+        : 'rgba(99, 155, 255, 0.90)';
       const s = p.size;
       ctx.fillRect(-s/2, -s/2, s, s);
       ctx.restore();
