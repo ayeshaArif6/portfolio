@@ -1,3 +1,4 @@
+
 // Theme persistence
 const themeToggle = document.getElementById('themeToggle');
 const root = document.documentElement;
@@ -74,7 +75,7 @@ copyBtn?.addEventListener('click', async ()=>{
 document.getElementById('year').textContent = new Date().getFullYear();
 
 
-// ===== Dark Blue Particle-Burst Background =====
+// ===== Sunset Particle-Burst Background (warm amber/rose) =====
 (function(){
   const canvas = document.getElementById('bgfx');
   if (!canvas) return;
@@ -131,13 +132,14 @@ document.getElementById('year').textContent = new Date().getFullYear();
       let a = p.alpha * (1 - dist / maxR);
       if (a < 0) a = 0;
 
+      // warm sunset squares (amber / rose)
       ctx.save();
       ctx.translate(p.x, p.y);
       ctx.rotate(p.rot);
       ctx.globalAlpha = a;
       ctx.fillStyle = Math.random() < 0.5
-        ? 'rgba(164, 196, 255, 0.95)'
-        : 'rgba(99, 155, 255, 0.95)';
+        ? 'rgba(255, 201, 120, 0.95)'  // soft amber
+        : 'rgba(255, 120, 140, 0.95)'; // warm rose
       const s = p.size;
       ctx.fillRect(-s/2, -s/2, s, s);
       ctx.restore();
@@ -173,4 +175,3 @@ document.getElementById('year').textContent = new Date().getFullYear();
     requestAnimationFrame(loop);
   }
 })();
-
