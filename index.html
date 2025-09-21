@@ -14,9 +14,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="./index.css?v=11" />
+  <link rel="stylesheet" href="./index.css?v=20" />
 
-  <!-- Favicon / Social -->
+  <!-- Favicon / Social (optional) -->
   <link rel="icon" href="images/favicon.png">
   <meta property="og:title" content="Ayesha Arif — Software Engineer" />
   <meta property="og:description" content="Full-stack projects in React, Firebase, Spring Boot, and more." />
@@ -24,7 +24,7 @@
   <meta property="og:image" content="images/social-card.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- JSON-LD -->
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -32,7 +32,10 @@
     "name": "Ayesha Arif",
     "jobTitle": "Software Engineer",
     "url": "https://<your-domain>",
-    "sameAs": ["https://github.com/ayeshaArif6","https://www.linkedin.com/in/<your-handle>/"],
+    "sameAs": [
+      "https://github.com/ayeshaArif6",
+      "https://www.linkedin.com/in/<your-handle>/"
+    ],
     "knowsAbout": ["React","Firebase","Java","Spring Boot","UI/UX"]
   }
   </script>
@@ -40,7 +43,7 @@
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
 
-  <!-- Sunset particle-burst background -->
+  <!-- Muted sunset particle-burst background -->
   <canvas id="bgfx" aria-hidden="true"></canvas>
 
   <header class="site-header">
@@ -73,6 +76,7 @@
         </div>
       </div>
       <div class="hero-card">
+        <img src="images/hero.png" alt="Ayesha working on a laptop with UI sketches" />
       </div>
     </section>
 
@@ -91,7 +95,7 @@
 
       <div class="grid">
         <article class="card reveal" data-tags="react firebase">
-          <img src="images/sortify.png" alt="Sortify gallery with tag filters" loading="lazy">
+          <img src="images/sortify.png" alt="Sortify gallery with tag filters" loading="lazy" />
           <div class="card-body">
             <h3>Sortify</h3>
             <p>AI-assisted image organizer with upload, tag suggestions, and gallery filters.</p>
@@ -104,7 +108,7 @@
         </article>
 
         <article class="card reveal" data-tags="react firebase">
-          <img src="images/fieldday.png" alt="Field Day Flex data dashboard" loading="lazy">
+          <img src="images/fieldday.png" alt="Field Day Flex data dashboard" loading="lazy" />
           <div class="card-body">
             <h3>Field Day Flex</h3>
             <p>Wildlife data collection & analysis tool with table builder, roles, and dark mode.</p>
@@ -117,7 +121,7 @@
         </article>
 
         <article class="card reveal" data-tags="java">
-          <img src="images/safepass.png" alt="SafePass password manager mock UI" loading="lazy">
+          <img src="images/safepass.png" alt="SafePass password manager mock UI" loading="lazy" />
           <div class="card-body">
             <h3>SafePass (Backend)</h3>
             <p>Spring Boot + JWT + encryption for a zero-knowledge password vault.</p>
@@ -129,7 +133,7 @@
         </article>
 
         <article class="card reveal" data-tags="ml">
-          <img src="images/ml.png" alt="ML case study visual" loading="lazy">
+          <img src="images/ml.png" alt="ML case study visual" loading="lazy" />
           <div class="card-body">
             <h3>ML Case Study</h3>
             <p>Feature engineering & evaluation pipeline with clean notebooks and reports.</p>
@@ -157,7 +161,7 @@
             </ul>
           </div>
         </li>
-        <!-- Add more roles here -->
+        <!-- Add more roles as needed -->
       </ol>
     </section>
 
@@ -214,7 +218,8 @@
   </footer>
 
   <script>document.documentElement.classList.remove('no-js');</script>
-  <script src="./index.js?v=11" defer></script>
+  <script src="./index.js?v=20" defer></script>
 </body>
 </html>
+
 
