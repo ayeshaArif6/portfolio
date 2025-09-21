@@ -183,3 +183,20 @@ img{max-width:100%; display:block}
   .nav-links.show{display:flex}
 }
 
+/* --- Make sure project cards have real breathing room --- */
+#projects > .grid{
+  grid-template-columns: 1fr;       /* one per row */
+  row-gap: 44px !important;         /* vertical space between cards */
+  column-gap: 0 !important;         /* no horizontal gap needed for 1-col */
+}
+
+/* keep spacing purely from the grid (no margins fighting it) */
+#projects > .grid > .card{
+  margin: 0;                        /* ignore any earlier margins */
+}
+
+/* prevent inner-element margins from visually “gluing” cards */
+#projects .card > img{ display:block; }   /* kill img default whitespace */
+#projects .card-body{ margin-top: 0; }    /* ensure no collapsed margin */
+
+
