@@ -55,6 +55,7 @@
 .reveal.is-visible{opacity:1; transform:none}
 
 
+  
 /* Responsive */
 @media (max-width: 900px){
 .hero{grid-template-columns:1fr; min-height:auto}
