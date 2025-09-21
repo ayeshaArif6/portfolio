@@ -72,3 +72,121 @@ copyBtn?.addEventListener('click', async ()=>{
 
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// ===== Dark Blue Particle-Burst Background =====
+(function () {
+  const canvas = document.getElementById('bgfx');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d', { alpha: true });
+  let dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let W = 0, H = 0, CX = 0, CY = 0;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function fitCanvas() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const cssW = window.innerWidth;
+    const cssH = window.innerHeight;
+    // Size the drawing buffer for crispness on HiDPI
+    canvas.width = Math.floor(cssW * dpr);
+    canvas.height = Math.floor(cssH * dpr);
+    // Keep CSS size in CSS; for safety we mirror here too
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
+    W = canvas.width; H = canvas.height;
+    CX = W / 2; CY = H / 2;
+  }
+
+  // Particles
+  const particles = [];
+  const PMAX = 2.2; // base size at 1x DPR
+
+  function targetCount() {
+    const area = window.innerWidth * window.innerHeight;
+    return Math.max(200, Math.min(900, Math.floor(area / 2500)));
+  }
+
+  function initParticles() {
+    particles.length = 0;
+    const count = targetCount();
+    for (let i = 0; i < count; i++) {
+      const ang = Math.random() * Math.PI * 2;
+      const r = Math.random() * Math.min(W, H) * 0.02; // spawn near center
+      const x = CX + Math.cos(ang) * r;
+      const y = CY + Math.sin(ang) * r;
+      const speed = (Math.random() * 0.35 + 0.08) * dpr;
+      particles.push({
+        x, y,
+        vx: Math.cos(ang) * speed,
+        vy: Math.sin(ang) * speed,
+        size: (Math.random() * PMAX + 0.6) * dpr,
+        alpha: Math.random() * 0.8 + 0.2,
+        rot: Math.random() * Math.PI,
+        rotV: (Math.random() * 0.01 - 0.005)
+      });
+    }
+  }
+
+  function drawFrame() {
+    ctx.clearRect(0, 0, W, H);
+    const maxR = Math.max(W, H) * 0.6;
+
+    for (const p of particles) {
+      // move
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.rotV;
+
+      // fade by distance from center
+      const dx = p.x - CX, dy = p.y - CY;
+      const dist = Math.hypot(dx, dy);
+      let a = p.alpha * (1 - dist / maxR);
+      if (a < 0) a = 0;
+
+      // draw
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.globalAlpha = a;
+      ctx.fillStyle = Math.random() < 0.5
+        ? 'rgba(164,196,255,0.95)'
+        : 'rgba(99,155,255,0.95)';
+      const s = p.size;
+      ctx.fillRect(-s / 2, -s / 2, s, s);
+      ctx.restore();
+
+      // recycle outside ring
+      if (dist > maxR) {
+        const ang = Math.random() * Math.PI * 2;
+        const r = Math.random() * Math.min(W, H) * 0.04;
+        p.x = CX + Math.cos(ang) * r;
+        p.y = CY + Math.sin(ang) * r;
+        const speed = (Math.random() * 0.35 + 0.08) * dpr;
+        p.vx = Math.cos(ang) * speed;
+        p.vy = Math.sin(ang) * speed;
+        p.size = (Math.random() * PMAX + 0.6) * dpr;
+        p.alpha = Math.random() * 0.8 + 0.2;
+        p.rot = Math.random() * Math.PI;
+        p.rotV = (Math.random() * 0.01 - 0.005);
+      }
+    }
+  }
+
+  function loop() {
+    drawFrame();
+    if (!prefersReduced) requestAnimationFrame(loop);
+  }
+
+  function refresh() {
+    fitCanvas();
+    initParticles();
+    if (prefersReduced) drawFrame();
+  }
+
+  window.addEventListener('resize', refresh, { passive: true });
+
+  refresh();
+  if (!prefersReduced) requestAnimationFrame(loop);
+})();
+
