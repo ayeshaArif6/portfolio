@@ -158,5 +158,13 @@ img{max-width:100%; display:block}
   .grid{grid-template-columns:1fr}
   .card{grid-column:span 12}
 }
+/* One project per row, at all screen sizes */
+#projects .grid{
+  grid-template-columns: 1fr;   /* single column */
+}
+
+#projects .card{
+  grid-column: 1 / -1;          /* span full width (ignore span 6) */
+}
 
 
