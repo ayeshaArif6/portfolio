@@ -73,3 +73,104 @@ copyBtn?.addEventListener('click', async ()=>{
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
+
+// ===== Dark Blue Particle-Burst Background =====
+(function(){
+  const canvas = document.getElementById('bgfx');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let W, H, CX, CY;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // particle count scales with viewport area
+  const baseCount = Math.floor((window.innerWidth * window.innerHeight) / 2500);
+  const PCOUNT = Math.max(200, Math.min(900, baseCount));
+  const PMAX = 2.2; // px @ 1x DPR
+  const particles = [];
+
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.width  = Math.floor(window.innerWidth  * dpr);
+    H = canvas.height = Math.floor(window.innerHeight * dpr);
+    canvas.style.width  = window.innerWidth  + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    CX = W/2; CY = H/2;
+    if (!particles.length) init();
+  }
+
+  function init(){
+    particles.length = 0;
+    for (let i = 0; i < PCOUNT; i++){
+      const angle  = Math.random() * Math.PI * 2;
+      const radius = Math.random() * Math.min(W, H) * 0.02; // spawn near center
+      const x = CX + Math.cos(angle) * radius;
+      const y = CY + Math.sin(angle) * radius;
+      const size  = (Math.random() * PMAX + 0.6) * dpr;
+      const speed = (Math.random() * 0.35 + 0.08) * dpr;
+      particles.push({
+        x, y, size, angle, speed,
+        alpha: Math.random() * 0.8 + 0.2,
+        rot: Math.random() * Math.PI,
+        rotV: (Math.random() * 0.01 - 0.005)
+      });
+    }
+  }
+
+  function drawFrame(){
+    ctx.clearRect(0, 0, W, H);
+    const maxR = Math.max(W, H) * 0.6;
+
+    for (const p of particles){
+      p.x += Math.cos(p.angle) * p.speed;
+      p.y += Math.sin(p.angle) * p.speed;
+      p.rot += p.rotV;
+
+      const dx = p.x - CX, dy = p.y - CY;
+      const dist = Math.hypot(dx, dy);
+      let a = p.alpha * (1 - dist / maxR);
+      if (a < 0) a = 0;
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.globalAlpha = a;
+      ctx.fillStyle = Math.random() < 0.5
+        ? 'rgba(164, 196, 255, 0.95)'
+        : 'rgba(99, 155, 255, 0.95)';
+      const s = p.size;
+      ctx.fillRect(-s/2, -s/2, s, s);
+      ctx.restore();
+
+      if (dist > maxR){
+        const ang = Math.random() * Math.PI * 2;
+        const r   = Math.random() * Math.min(W, H) * 0.04;
+        p.x = CX + Math.cos(ang) * r;
+        p.y = CY + Math.sin(ang) * r;
+        p.angle = ang;
+        p.size  = (Math.random() * PMAX + 0.6) * dpr;
+        p.speed = (Math.random() * 0.35 + 0.08) * dpr;
+        p.alpha = Math.random() * 0.8 + 0.2;
+      }
+    }
+  }
+
+  function loop(){
+    drawFrame();
+    if (!reduce) requestAnimationFrame(loop);
+  }
+
+  window.addEventListener('resize', ()=>{
+    particles.length = 0;
+    resize();
+    if (reduce) drawFrame();
+  });
+
+  resize();
+  if (reduce) {
+    drawFrame();   // static frame for reduced motion
+  } else {
+    requestAnimationFrame(loop);
+  }
+})();
+
