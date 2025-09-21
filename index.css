@@ -101,7 +101,7 @@ img{max-width:100%; display:block}
   overflow:hidden; box-shadow:var(--shadow); transition:transform .2s ease;
 }
 .card:hover{transform:translateY(-2px)}
-.card-body{padding:14px 16px 16px}
+.card-body{padding:8px 10px 10px}
 .card h3{margin:.2rem 0 .3rem}
 .card p{color:var(--muted)}
 .meta{display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0}
