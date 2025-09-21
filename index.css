@@ -84,25 +84,29 @@ img{max-width:100%; display:block}
 .icon-link{display:inline-flex; align-items:center; gap:.35rem; text-decoration:none; color:var(--text); opacity:.9}
 .icon-link:hover{opacity:1}
 
-/* ==================== Projects (COMPACT) ==================== */
+/* ==================== Projects (COMPACT + EXTRA SPACE) ==================== */
 #projects .grid{
-  /* one per row, but compact width */
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 36px;              /* ⬅️ was 14px — more room between cards */
 }
+
 #projects .card{
   grid-column: 1 / -1;
-  /* narrower card + centered */
-  max-width: 820px;          /* <<< adjust this to taste (760–900) */
+  max-width: 820px;
   margin-inline: auto;
-
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  transition:transform .2s ease;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform .2s ease;
 }
+
+/* optional: add a tiny extra breathing room on very small screens */
+@media (max-width: 720px){
+  #projects .grid{ gap: 28px; }
+}
+
 #projects .card:hover{transform:translateY(-2px)}
 
 /* shorter thumbnail with consistent crop */
