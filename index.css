@@ -101,7 +101,23 @@ main, .site-footer{ position:relative; z-index:1 }
   justify-self:end; background:var(--card); padding:16px;
   border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow)
 }
+/* Push the hero text down a bit from the top bar */
+.hero {
+  padding-top: clamp(28px, 6vh, 88px); /* fluid top padding */
+}
 
+
+/* Tighten spacing so the eyebrow/heading/paragraph feel cohesive */
+.eyebrow { 
+  margin-top: .25rem; 
+  margin-bottom: .4rem; 
+}
+.hero-title { 
+  margin-bottom: .5rem; 
+}
+.sub { 
+  margin-top: .25rem; 
+}
 /* ====== Buttons & Icon links ================================== */
 .btn{
   --bgc:var(--card); --fg:var(--text);
