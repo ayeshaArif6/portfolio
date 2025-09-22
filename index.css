@@ -134,6 +134,11 @@ main, .site-footer{ position:relative; z-index:1 }
 .icon-link{ display:inline-flex; align-items:center; gap:.35rem; text-decoration:none; color:var(--text); opacity:.9 }
 .icon-link:hover{ opacity:1 }
 
+.icon-link { display:inline-flex; align-items:center; gap:.45rem; }
+.icon-link .icon { width:1.1em; height:1.1em; flex:0 0 auto; }
+.icon-link:hover { color: var(--brand); }
+
+
 /* ====== Projects (compact, centered, spaced) =================== */
 #projects .grid{
   display:grid;
