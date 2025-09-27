@@ -140,26 +140,29 @@ main, .site-footer{ position:relative; z-index:1 }
 
 
 /* ====== Projects (overlap layout) ============================= */
+
+/* Chips & buttons inside the plaque */
+/* ====== Projects (right-center overlap with smaller image) ====== */
 #projects .grid{
   display:grid;
-  grid-template-columns: 1fr;   /* one card per row */
+  grid-template-columns: 1fr;           /* one card per row */
   row-gap: 48px;
   justify-items: center;
 }
 
 #projects .card{
-  position: relative;           /* anchor the overlap */
-  width: min(100%, 920px);      /* a bit wider for the new layout */
-  background: transparent;      /* the image is the “base” now */
-  overflow: visible;            /* let the body hang off the right */
+  position: relative;
+  width: min(100%, 920px);
+  background: transparent;
   border: 0;
   box-shadow: none;
+  overflow: visible;                     /* allow plaque to exceed image */
 }
 
-/* Base image */
+/* Smaller thumbnail aligned left */
 #projects .card > img{
-  display: block;
-  width: 100%;
+  display:block;
+  width: 78%;                            /* was 100% – smaller image */
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 16px;
@@ -167,44 +170,55 @@ main, .site-footer{ position:relative; z-index:1 }
   box-shadow: var(--shadow);
 }
 
-/* Overlapping body (“plaque”) */
+/* Overlapping plaque – right center, hanging past the frame */
 #projects .card-body{
+  --plaque-w: clamp(280px, 42%, 420px);  /* plaque width */
+  --hang: 28px;                          /* how far it sticks out past the image */
+
   position: absolute;
-  right: -14px;                 /* hang off the right edge slightly */
-  bottom: 14px;
-  width: min(56%, 420px);       /* how wide the plaque is */
+  top: 50%;
+  right: calc(-1 * var(--hang));         /* exceed the image/card slightly */
+  transform: translateY(-50%);           /* right CENTER */
+  width: var(--plaque-w);
   padding: 12px 14px 14px;
   border-radius: 14px;
   border: 1px solid var(--border);
   background: color-mix(in oklab, var(--card) 92%, transparent);
-  /* fallback if color-mix isn’t supported */
-  background: var(--card);
+  background: var(--card);               /* fallback */
   box-shadow: var(--shadow);
 }
 
-/* Tighter text to fit the plaque nicely */
-#projects .card h3{
-  margin: .05rem 0 .25rem;
-  font-size: 1.1rem;
-}
+/* Tighter text inside the plaque */
+#projects .card h3{ margin:.05rem 0 .25rem; font-size:1.1rem }
 #projects .card p{
-  color: var(--muted);
-  font-size: .95rem;
-  line-height: 1.35;
-  margin: 0 0 .4rem;
+  color:var(--muted); font-size:.95rem; line-height:1.35;
+  margin:0 0 .4rem;
 }
-
-/* Chips & buttons inside the plaque */
 #projects .meta{ display:flex; gap:.4rem; flex-wrap:wrap; margin:.35rem 0 .35rem }
 #projects .meta span{
-  font:600 11px/1.05 "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  background:var(--bg); border:1px dashed var(--border);
-  border-radius:8px; padding:.25rem .45rem;
+  font:600 11px/1.05 "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  background:var(--bg);
+  border:1px dashed var(--border);
+  border-radius:8px;
+  padding:.25rem .45rem;
 }
 #projects .actions{ display:flex; gap:.4rem }
 
-/* Hover lift for a bit of life */
-#projects .card:hover .card-body{ transform: translateY(-2px); transition: transform .2s ease }
+/* Subtle hover lift */
+#projects .card:hover .card-body{ transform: translateY(-50%) translateY(-2px); transition: transform .2s ease }
+
+/* -------- Mobile fallback: stack normally under the image -------- */
+@media (max-width: 720px){
+  #projects .card{ width: 100%; overflow: hidden }
+  #projects .card > img{ width: 100% }      /* full-width image on mobile */
+  #projects .card-body{
+    position: static;                        /* no overlap on small screens */
+    width: auto;
+    margin-top: 10px;
+    transform: none;
+    right: auto; top: auto;
+  }
+}
 
 /* ---------- Mobile fallback: stack normally ---------- */
 @media (max-width: 720px){
