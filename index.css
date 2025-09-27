@@ -244,3 +244,35 @@ main, .site-footer{ position:relative; z-index:1 }
   .nav-links.show{ display:flex }
   #projects .grid{ row-gap:36px }
 }
+/* Make hero content sit a bit lower but keep lines tight */
+.hero { padding-top: clamp(24px, 5vh, 96px); }
+
+.eyebrow { margin: .15rem 0 .3rem; }
+.hero-title { margin: 0 0 .35rem; }
+
+/* Lead line directly under the H1 */
+.hero-lead {
+  margin: 0 0 .35rem;
+  color: var(--muted);
+  max-width: 60ch;
+  line-height: 1.35;
+}
+
+/* Compact inline stack list */
+.hero .stack {
+  display: flex; flex-wrap: wrap; gap: .4rem .6rem;
+  list-style: none; padding: 0; margin: .15rem 0 .4rem;
+  color: var(--muted);
+  font-size: .95rem;
+}
+.hero .stack li { margin: 0; padding: 0; }
+.hero .stack li strong { color: var(--text); }
+
+/* Pull CTAs closer to the stack */
+.hero .cta-row { margin-top: .45rem; }
+
+/* Icon links with SVGs */
+.icon-link { display: inline-flex; align-items: center; gap: .45rem; }
+.icon-link .icon { width: 1.1em; height: 1.1em; flex: 0 0 auto; }
+.icon-link:hover { color: var(--brand); }
+
