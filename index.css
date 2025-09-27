@@ -233,12 +233,12 @@ main, .site-footer{ position:relative; z-index:1 }
 }
 
 /* Put ONLY the 2nd project's plaque on the LEFT center */
-#projects .grid .card:nth-of-type(2) .card-body{
-  right: auto;
-  left: calc(-1 * var(--hang));        /* hang past left edge */
-  transform: translateY(-50%);         /* keep vertical center */
-  text-align: left;
+/* Only the 2nd card: */
+#projects .grid .card:nth-of-type(2) > img{
+  margin-left: auto;               /* push toward the right edge */
+  transform: translateX(48px);     /* increase to move even more right */
 }
+
 
 /* (Optional) If you decide you want all even cards on the left, use this instead:
 #projects .grid .card:nth-of-type(even) .card-body{
@@ -248,6 +248,10 @@ main, .site-footer{ position:relative; z-index:1 }
   text-align: left;
 }
 */
+#projects .grid .card{
+  overflow: visible;               /* lets the image + overlay breathe outside */
+}
+
 
 /* Make the image a touch smaller so the overlap doesn’t cover too much */
 #projects .card > img{
