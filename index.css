@@ -290,6 +290,25 @@ main, .site-footer{ position:relative; z-index:1 }
     right: auto; top: auto;
   }
 }
+/* ---------- Card #2 (Sortify) layout overrides ---------- */
+
+/* Push the second image farther to the right */
+#projects .grid .card:nth-of-type(2) > img{
+  margin-left: auto;            /* anchor image to the right edge */
+  transform: translateX(110px); /* increase/decrease to taste */
+}
+
+/* Put the second card's plaque on the LEFT and nudge it, too */
+#projects .grid .card:nth-of-type(2) .card-body{
+  /* Use the same "hang" variable so tuning is easy */
+  --hang: 40px;                 /* how far the plaque sticks out past the image */
+  right: auto;                  /* stop using right */
+  left: calc(-1 * var(--hang)); /* place on the left edge */
+  transform: translateY(-50%);  /* keep it vertically centered */
+  text-align: left;
+  z-index: 2;                   /* sit above the image */
+}
+
 
 /* ---------- Mobile fallback: stack normally ---------- */
 @media (max-width: 720px){
