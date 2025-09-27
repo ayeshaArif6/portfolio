@@ -206,6 +206,73 @@ main, .site-footer{ position:relative; z-index:1 }
 
 /* Subtle hover lift */
 #projects .card:hover .card-body{ transform: translateY(-50%) translateY(-2px); transition: transform .2s ease }
+/* === Translucent, glassy project plaques (applies to all) === */
+#projects .card-body{
+  /* keep your existing size/position vars if you have them */
+  --plaque-w: clamp(280px, 42%, 420px);
+  --hang: 28px;
+
+  position: absolute;
+  top: 50%;
+  right: calc(-1 * var(--hang));       /* default = right center */
+  transform: translateY(-50%);
+  width: var(--plaque-w);
+  padding: 12px 14px 14px;
+  z-index: 1;
+
+  /* translucent glass look */
+  background: color-mix(in oklab, var(--card) 78%, transparent);
+  /* fallback if color-mix unsupported */
+  background: rgba(18, 24, 38, 0.78);
+  border: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+/* Put ONLY the 2nd project's plaque on the LEFT center */
+#projects .grid .card:nth-of-type(2) .card-body{
+  right: auto;
+  left: calc(-1 * var(--hang));        /* hang past left edge */
+  transform: translateY(-50%);         /* keep vertical center */
+  text-align: left;
+}
+
+/* (Optional) If you decide you want all even cards on the left, use this instead:
+#projects .grid .card:nth-of-type(even) .card-body{
+  right: auto;
+  left: calc(-1 * var(--hang));
+  transform: translateY(-50%);
+  text-align: left;
+}
+*/
+
+/* Make the image a touch smaller so the overlap doesn’t cover too much */
+#projects .card > img{
+  width: 78%;                          /* adjust 70–85% to taste */
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* Mobile: stack normally */
+@media (max-width: 720px){
+  #projects .card{ width: 100%; overflow: hidden }
+  #projects .card > img{ width: 100% }
+  #projects .card-body{
+    position: static;
+    width: auto;
+    margin-top: 10px;
+    transform: none;
+    right: auto; left: auto;
+    backdrop-filter: none; -webkit-backdrop-filter: none; /* better perf on mobile */
+  }
+}
+
 
 /* -------- Mobile fallback: stack normally under the image -------- */
 @media (max-width: 720px){
