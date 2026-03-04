@@ -30,63 +30,109 @@
   </script>
 </head>
 <body>
+  <div class="page">
+
   <a class="skip-link" href="#content">Skip to content</a>
 
   <canvas id="bgfx" aria-hidden="true"></canvas>
 
   <header class="site-header">
-    <nav class="nav container" aria-label="Primary">
-      <a href="#" class="brand" aria-label="Home">AA</a>
-      <button id="menuBtn" class="icon-btn" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">☰</button>
-      <ul id="navLinks" class="nav-links">
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌓</button></li>
-      </ul>
-    </nav>
-  </header>
+  <nav class="nav-pill container" aria-label="Primary">
+    <a href="#home" class="brand">AA</a>
+
+    <div class="pill-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      <a class="icon-only" href="https://github.com/ayeshaArif6" target="_blank" rel="noopener" aria-label="GitHub">🐙</a>
+      <a class="icon-only" href="images/Ayesha_Arif_Resume.pdf" target="_blank" aria-label="Resume">📄</a>
+      <a class="btn small" href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
 
   <main id="content">
-    <section class="hero container reveal">
-  <div class="hero-text">
-    <p class="eyebrow">Hi, I’m Ayesha</p>
-    <h1 class="hero-title">A Software Engineer.</h1>
+   <section class="hero container reveal" id="home">
+  <div class="hero-inner">
+    <img class="avatar" src="images/avatar.png" alt="Ayesha avatar" />
 
-    <!-- Tight, single-line lead right under the H1 -->
-    <p class="hero-lead">I’m a developer who loves building fast, clean interfaces and the APIs that power them.</p>
+    <h1 class="hero-title">
+      Hi, I’m <span class="accent">Ayesha</span>.<br />
+      Software Engineer
+    </h1>
 
-    <!-- Compact, inline “Stack” line (no big section padding) -->
-    <ul class="stack">
-      <li><strong>Stack:</strong></li>
-      <li>Java</li><li>JavaScript</li><li>HTML</li><li>CSS</li>
-      <li>TypeScript</li><li>Python</li><li>React</li><li>C</li><li>C++</li><li>SQL</li>
-    </ul>
+    <p class="hero-lead">
+      I build fast, clean interfaces and full-stack apps with React, Firebase, and Java/Spring.
+    </p>
 
-    <!-- Buttons sit closer to the stack -->
     <div class="cta-row">
-      <a class="btn ghost" href="#projects">See Projects</a>
-
-      <!-- With icons -->
-      <a class="icon-link" href="https://github.com/ayeshaArif6" target="_blank" rel="noopener" aria-label="GitHub">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M12 .5a12 12 0 00-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.75.08-.74.08-.74 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.66-.3-5.46-1.33-5.46-5.9 0-1.3.47-2.36 1.24-3.19-.12-.31-.54-1.56.12-3.26 0 0 1.01-.32 3.3 1.22a11.37 11.37 0 016 0c2.3-1.54 3.3-1.22 3.3-1.22.66 1.7.24 2.95.12 3.26.77.83 1.24 1.9 1.24 3.19 0 4.58-2.8 5.6-5.47 5.9.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58A12 12 0 0012 .5z"/>
-        </svg>
-        GitHub
-      </a>
-
-      <a class="icon-link" href="https://www.linkedin.com/in/ayesha-arif-579584343/" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4v16h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.83-2.2 3.76-2.2 4.02 0 4.76 2.64 4.76 6.07V24h-4v-7.9c0-1.88-.04-4.3-2.62-4.3-2.62 0-3.02 2.05-3.02 4.17V24h-4V8z"/>
-        </svg>
-        LinkedIn
-      </a>
+      <a class="btn primary" href="#projects">View Projects</a>
+      <span class="status-pill">
+        <span class="dot"></span> Available for internships • Fall 2026
+      </span>
     </div>
+
+    <!-- moving tech bar -->
+   <div class="marquee" aria-label="Tech stack">
+  <div class="marquee-track">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" class="tech-logo"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" class="tech-logo" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-plain.svg" class="tech-logo"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original-wordmark.svg" class="tech-logo"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"class="tech-logo" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg" class="tech-logo"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" class="tech-logo"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" class="tech-logo"/>
+
+    <!-- duplicate for seamless loop -->
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" class="tech-logo"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" class="tech-logo" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-plain.svg" class="tech-logo"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original-wordmark.svg" class="tech-logo"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"class="tech-logo" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg" class="tech-logo"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" class="tech-logo"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" class="tech-logo"/>
+
+  </div>
+</div>
   </div>
 </section>
 
+<section id="about" class="container section about">
+  <div class="about-grid">
+
+    <div class="about-text">
+      <h2>About Me</h2>
+
+      <p>
+        I'm Ayesha Arif, a software engineer passionate about building
+        modern web applications and intelligent systems. I enjoy creating
+        fast, intuitive interfaces while designing robust backend services
+        that power real-world solutions.
+      </p>
+
+      <p>
+        My experience spans full-stack development with technologies like
+        React, Firebase, Java, and Spring Boot. I’m especially interested
+        in building AI-powered tools and scalable web platforms that
+        improve everyday workflows.
+      </p>
+
+      <p>
+        Currently pursuing my M.S. in Computer Science at Arizona State
+        University, I’m actively seeking opportunities where I can grow
+        as an engineer and contribute to impactful products.
+      </p>
+
+      
+    </div>
+
+
+  </div>
+</section>
     <!-- Projects -->
     <section id="projects" class="container section">
       <div class="section-head">
@@ -155,16 +201,25 @@
     <!-- Experience -->
     <section id="experience" class="container section reveal">
       <div class="section-head"><h2>Experience</h2></div>
+      <li class="tl-item">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="tl-card">
+            <h3>Incoming Software Engineer Intern - Echo Global Logistics <span class="pill">Chicago, IL</span><span class="pill">June 2026 - August 2026</span></h3>
+            <ul class="tl-bullets">
+              <li>Incoming Software Engineer Intern in Summer 2026.</li>
+            </ul>
+          </div>
+        </li>
        <li class="tl-item">
           <span class="tl-dot" aria-hidden="true"></span>
           <div class="tl-card">
             <h3>Software Engineer Intern - 99 Yards <span class="pill">New York, NY</span><span class="pill">Sep. 2025 - Present</span></h3>
             <div class="tl-meta">Mobile development • Spring Boot • TypeScript</div>
             <ul class="tl-bullets">
-              <li>Built production customer-facing features using React and TypeScript in a full-stack, client-server architecture.</li>
-              <li>Created a reusable component-based design system, reducing duplicate UI code by 23%.</li>
-              <li>Developed an AI-powered chatbot with tone customization and optimized auto-complete workflows..</li>
-              <li>Designed and integrated secure REST APIs with JWT authentication, improving performance and reliability.</li>
+              <li>Developed and maintained production web applications using TypeScript, React, Node.js, and REST APIs.</li>
+              <li>Owned frontend features end-to-end, from design implementation to API integration and bug resolution.</li>
+              <li>Refactored components to improve maintainability, readability, and reuse.</li>
+              <li>Collaborated asynchronously with designers and product managers through planning, testing, and releases.</li>
             </ul>
           </div>
         </li>
@@ -174,16 +229,17 @@
             <h3>Software Engineer Intern — Unite for Rights <span class="pill">San Francisco, CA (Remote)</span><span class="pill">May 2025 - Aug. 2025</span></h3>
             <div class="tl-meta">Rest APIs • Node.js • Python</div>
             <ul class="tl-bullets">
-              <li>Developed backend services using Node.js and Express to support application features and workflows.</li>
-              <li>Integrated AI chatbot functionality using Python libraries and server-side logic.</li>
-              <li>Designed and consumed REST APIs to enable dynamic content and data exchange between services.</li>
+              <li>Built backend services using Node.js and Express following RESTful API principles.</li>
+              <li>Worked with SQL-backed data stores, optimizing queries for application workflows.</li>
+              <li>Improved performance and reliability across multiple API endpoints.</li>
+              <li>Maintained technical documentation in a remote, async environment.</li>
             </ul>
           </div>
         </li>
         <li class="tl-item">
           <span class="tl-dot" aria-hidden="true"></span>
           <div class="tl-card">
-            <h3>Web Dev Intern — Unite for Rights <span class="pill">San Francisco, CA</span><span class="pill">May 2025 - Aug. 2025</span></h3>
+            <h3>Web Design and Development Intern — Unite for Rights <span class="pill">San Francisco, CA</span><span class="pill">May 2025 - Aug. 2025</span></h3>
             <div class="tl-meta">UI/UX • WordPress • SEO</div>
             <ul class="tl-bullets">
               <li>Redesigned layouts using modern UI/UX and responsive design, increasing session duration by 35%.</li>
@@ -245,6 +301,7 @@
 
   <script>document.documentElement.classList.remove('no-js');</script>
   <script src="./index.js?v=22" defer></script>
+  </div>
 </body>
 </html>
 
